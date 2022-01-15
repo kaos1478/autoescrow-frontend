@@ -1,0 +1,1270 @@
+[
+	{
+		"inputs": [],
+		"name": "cancelRequestNewOwner",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_weiAmount",
+				"type": "uint256"
+			}
+		],
+		"name": "createEscrow",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "deleteEscrow",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "disputeEscrow",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "taxPercentage",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paidDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "counter",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paidEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "disputeEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SContractInfo",
+				"name": "contractInfo",
+				"type": "tuple"
+			}
+		],
+		"name": "eGetContractInfo",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "newOwnerRequestTimer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "newOwnerLockTimer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "taxPercentage",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "taxCollected",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openDeadlineLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paidDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paidDeadlineLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "counter",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paidEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "disputeEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SContractInfoAsOwner",
+				"name": "contractInfo",
+				"type": "tuple"
+			}
+		],
+		"name": "eGetContractInfoAsOwner",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SOpenEscrow[]",
+				"name": "opens",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SPaidEscrow[]",
+				"name": "paids",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "openDisputeBy",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SDisputeEscrow[]",
+				"name": "disputes",
+				"type": "tuple[]"
+			}
+		],
+		"name": "eGetEscrows",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "currentOpenAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentPaidAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentDisputeAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPaidAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalDisputeAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalCreated",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentPaidAsPayer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentDisputeAsPayer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPaidAsPayer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalDisputeAsPayer",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SAddressInfo",
+				"name": "userInfo",
+				"type": "tuple"
+			}
+		],
+		"name": "eGetInfoByAddress",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SOpenEscrow[]",
+				"name": "opens",
+				"type": "tuple[]"
+			}
+		],
+		"name": "eGetLastEscrows",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SOpenEscrow[]",
+				"name": "opens",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SPaidEscrow[]",
+				"name": "paids",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SPaidEscrow[]",
+				"name": "paidsAsPayer",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "openDisputeBy",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct SafeEscrow.SDisputeEscrow[]",
+				"name": "disputes",
+				"type": "tuple[]"
+			}
+		],
+		"name": "eGetMyEscrows",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "execAbandonedCollector",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "execGarbageCollector",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "execTaxCollector",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "execToggleActive",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "finishEscrow",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_option",
+				"type": "uint256"
+			}
+		],
+		"name": "intermediate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "payEscrow",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_newOwner",
+				"type": "address"
+			}
+		],
+		"name": "requestNewOwner",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "setNewOwner",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_taxPercentage",
+				"type": "uint256"
+			}
+		],
+		"name": "setTaxPercentage",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getContractInfo",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "taxPercentage",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paidDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "counter",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paidEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "disputeEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct SafeEscrow.SContractInfo",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getContractInfoAsOwner",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "newOwnerRequestTimer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "newOwnerLockTimer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "taxPercentage",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "taxCollected",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openDeadlineLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paidDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paidDeadlineLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "counter",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "openEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paidEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "disputeEscrowsLenght",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct SafeEscrow.SContractInfoAsOwner",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "getEscrowById",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SOpenEscrow[]",
+				"name": "",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SPaidEscrow[]",
+				"name": "",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "openDisputeBy",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SDisputeEscrow[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getEscrows",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SOpenEscrow[]",
+				"name": "",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SPaidEscrow[]",
+				"name": "",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "openDisputeBy",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SDisputeEscrow[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getEscrowsBySender",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SOpenEscrow[]",
+				"name": "opensAsSender",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SPaidEscrow[]",
+				"name": "paidsAsSender",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SPaidEscrow[]",
+				"name": "paidsAsPayer",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "openDisputeBy",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SDisputeEscrow[]",
+				"name": "disputesAsSender",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "getInfoByAddress",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "currentOpenAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentPaidAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentDisputeAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPaidAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalDisputeAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalCreated",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentPaidAsPayer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentDisputeAsPayer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPaidAsPayer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalDisputeAsPayer",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SAddressInfo",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getInfoBySender",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "currentOpenAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentPaidAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentDisputeAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPaidAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalDisputeAsSender",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalCreated",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentPaidAsPayer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentDisputeAsPayer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalPaidAsPayer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalDisputeAsPayer",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SAddressInfo",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_quantity",
+				"type": "uint256"
+			}
+		],
+		"name": "getLastEscrows",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct SafeEscrow.SOpenEscrow[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
