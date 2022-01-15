@@ -66,40 +66,40 @@ const Home: NextPage = () => {
         <title>Create Next App</title>
         <meta name="description" content="NextJS ts template" />
       </Head>
-      <Typography as="body1">
-        <button onClick={connect}>connect</button>
-        <br />
-        {account}
-        <br />
-        {connect}
-        <br />
-        <br />
-        <input
-          value={id}
-          onChange={e => setId(parseFloat(e.currentTarget.value))}
-          placeholder="ID"
-        />
-        <br />
-        <input
-          value={value}
-          onChange={e => setValue(e.currentTarget.value)}
-          placeholder="Value"
-        />
-        <br />
-        <button onClick={payEscrow}>Pay Escrow</button>
-        <br />
-        <br />
-        <input
-          value={ammount}
-          onChange={e => setAmmount(e.currentTarget.value)}
-          placeholder="Ammount"
-        />
-        <button onClick={createEscrow}>CreateEscrow</button>
-        <br />
-        <br />
-        <button onClick={getEscrowsInfo}>GetSenderInfo</button>
-        <button onClick={toggleActive}>ToggleActive</button>
-      </Typography>
+      <button onClick={connect}>
+        <Typography as="body4">Connect Wallet</Typography>
+      </button>
+      <br />
+      {account}
+      <br />
+      {connect}
+      <br />
+      <br />
+      <input
+        value={id}
+        onChange={e => setId(parseFloat(e.currentTarget.value))}
+        placeholder="ID"
+      />
+      <br />
+      <input
+        value={value}
+        onChange={e => setValue(e.currentTarget.value)}
+        placeholder="Value"
+      />
+      <br />
+      <button onClick={payEscrow}>Pay Escrow</button>
+      <br />
+      <br />
+      <input
+        value={ammount}
+        onChange={e => setAmmount(e.currentTarget.value)}
+        placeholder="Ammount"
+      />
+      <button onClick={createEscrow}>CreateEscrow</button>
+      <br />
+      <br />
+      <button onClick={getEscrowsInfo}>GetSenderInfo</button>
+      <button onClick={toggleActive}>ToggleActive</button>
     </div>
   )
 }

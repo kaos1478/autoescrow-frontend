@@ -13,12 +13,11 @@ export default createGlobalStyle<{ theme: ThemeType }>`
   }
 
   body {
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${props => props.theme.colors.background.primary};
   }
 
   html, body, button, textarea, input {
     -webkit-font-smoothing: antialiased;
-    color: ${props => props.theme.colors.black};
     font-family: 'Roboto', sans-serif;
     ${mq({ 'font-size': ['87.5%', '87.5%', '93.75%'] })}
   }

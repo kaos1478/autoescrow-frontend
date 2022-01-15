@@ -56,9 +56,11 @@ const theme = {
     }
   },
   fontSizes: {
-    small: '1.125rem',
-    medium: '1.5rem',
-    large: '2.25rem'
+    ultraSmall: '0.75rem',
+    small: '0.88rem',
+    medium: '1.125rem',
+    large: '1.5rem',
+    ultraLarge: '2.25rem'
   },
   breakpoints
 }
