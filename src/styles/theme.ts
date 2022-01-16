@@ -21,40 +21,40 @@ const theme = {
     background: {
       primary: '#0E1122',
       secondary: '#182037',
-      tertiary: '#131931',
-      quaternary: '#242D48'
+      tertiary: '#131931'
     },
     button: {
       success: {
         darkGreen: '#1DAB91',
         lightGreen: '#49CD57',
-        text: '#FFFFFF',
-        borderRadius: buttonBorderRadius
+        text: '#FFFFFF'
       },
       danger: {
         darkRed: '#E21B25',
         lightRed: '#E55C5C',
-        text: '#FFFFFF',
-        borderRadius: buttonBorderRadius
+        text: '#FFFFFF'
       },
       warning: {
         darkOrange: '#ED8424',
         lightOrange: '#FF9473',
-        text: '#FFFFFF',
-        borderRadius: buttonBorderRadius
+        text: '#FFFFFF'
       },
       default: {
         primary: primaryColor,
         secondary: secondaryColor,
-        text: '#FFFFFF',
-        borderRadius: buttonBorderRadius
+        text: '#FFFFFF'
       }
+    },
+    input: {
+      placeHolder: quaternaryColor,
+      text: '#FFFFFF',
+      background: '#242D48',
+      border: quaternaryColor
     },
     text: {
       light: '#9AA9D5',
       dark: quaternaryColor
     },
-    border: quaternaryColor,
     icon: {
       primary: primaryColor,
       dark: quaternaryColor
@@ -63,7 +63,12 @@ const theme = {
   sizes: {
     button: {
       height: '2.2rem',
-      minWidth: '6.88rem'
+      minWidth: '6.88rem',
+      borderRadius: buttonBorderRadius
+    },
+    input: {
+      height: '2.2rem',
+      borderRadius: buttonBorderRadius
     },
     font: {
       ultraSmall: '0.75rem',

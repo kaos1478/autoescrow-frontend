@@ -8,14 +8,14 @@ export const colorVariants = {
       ${props => props.theme.colors.button.default.primary},
       ${props => props.theme.colors.button.default.secondary}
     );
-    border-radius: ${props => props.theme.colors.button.default.borderRadius};
+    border-radius: ${props => props.theme.sizes.button.borderRadius};
     color: ${props => props.theme.colors.button.default.text};
     font-size: ${props => props.theme.sizes.font.small};
   `,
   defaultReverse: css`
     background-color: transparent;
     border: 1px solid ${props => props.theme.colors.button.default.primary};
-    border-radius: ${props => props.theme.colors.button.default.borderRadius};
+    border-radius: ${props => props.theme.sizes.button.borderRadius};
     color: ${props => props.theme.colors.button.default.primary};
     font-size: ${props => props.theme.sizes.font.small};
   `,
@@ -25,7 +25,7 @@ export const colorVariants = {
       ${props => props.theme.colors.button.success.lightGreen},
       ${props => props.theme.colors.button.success.darkGreen}
     );
-    border-radius: ${props => props.theme.colors.button.success.borderRadius};
+    border-radius: ${props => props.theme.sizes.button.borderRadius};
     color: ${props => props.theme.colors.button.success.text};
   `,
   warning: css`
@@ -34,7 +34,7 @@ export const colorVariants = {
       ${props => props.theme.colors.button.warning.lightOrange},
       ${props => props.theme.colors.button.warning.darkOrange}
     );
-    border-radius: ${props => props.theme.colors.button.warning.borderRadius};
+    border-radius: ${props => props.theme.sizes.button.borderRadius};
     color: ${props => props.theme.colors.button.warning.text};
   `,
   danger: css`
@@ -43,7 +43,7 @@ export const colorVariants = {
       ${props => props.theme.colors.button.danger.lightRed} 0%,
       ${props => props.theme.colors.button.danger.darkRed} 100%
     );
-    border-radius: ${props => props.theme.colors.button.danger.borderRadius};
+    border-radius: ${props => props.theme.sizes.button.borderRadius};
     color: ${props => props.theme.colors.button.danger.text};
   `
 }
