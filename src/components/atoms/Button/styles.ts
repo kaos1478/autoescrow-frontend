@@ -14,8 +14,8 @@ export const colorVariants = {
   `,
   defaultReverse: css`
     background-color: transparent;
-    border: 1px solid ${props => props.theme.colors.button.default.primary};
     border-radius: ${props => props.theme.sizes.button.borderRadius};
+    border: 1px solid ${props => props.theme.colors.button.default.primary};
     color: ${props => props.theme.colors.button.default.primary};
     font-size: ${props => props.theme.sizes.font.small};
   `,
@@ -49,10 +49,16 @@ export const colorVariants = {
 }
 
 export const Container = styled.button<IButtonProps>`
-  font-size: ${props => props.theme.sizes.font.small};
-  outline: none !important;
   border: none;
-  min-width: ${props => props.theme.sizes.button.minWidth};
+  font-size: ${props => props.theme.sizes.font.small};
   height: ${props => props.theme.sizes.button.height};
+  min-width: ${props => props.theme.sizes.button.minWidth};
+  outline: none !important;
+  transition: all 0.5s;
+
+  &:hover {
+    filter: brightness(1.3);
+  }
+
   ${props => colorVariants[props.color]}
 `
