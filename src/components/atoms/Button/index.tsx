@@ -11,7 +11,9 @@ import * as Styled from './styles'
 // Services
 
 // Types
-export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  color: keyof typeof Styled.colorVariants
+}
 
 const Button: React.FC<IButtonProps> = ({ children, ...rest }) => {
   return <Styled.Container {...rest}>{children}</Styled.Container>

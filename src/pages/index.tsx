@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { useWeb3React } from '@web3-react/core'
 
-import Typography from '@/components/atoms/Typography'
 import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
 import useInjectedConnector from '@/hooks/useInjectedConnector'
+import Button from '@/components/atoms/Button'
+import Input from '@/components/atoms/Input'
 
 const Home: NextPage = () => {
   const { activate, account } = useWeb3React()
@@ -61,46 +62,47 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div>
+    <>
       <Head>
         <title>Create Next App</title>
         <meta name="description" content="NextJS ts template" />
       </Head>
-      <Typography as="body1">
-        <button onClick={connect}>connect</button>
-        <br />
-        {account}
-        <br />
-        {connect}
-        <br />
-        <br />
-        <input
-          value={id}
-          onChange={e => setId(parseFloat(e.currentTarget.value))}
-          placeholder="ID"
-        />
-        <br />
-        <input
-          value={value}
-          onChange={e => setValue(e.currentTarget.value)}
-          placeholder="Value"
-        />
-        <br />
-        <button onClick={payEscrow}>Pay Escrow</button>
-        <br />
-        <br />
-        <input
-          value={ammount}
-          onChange={e => setAmmount(e.currentTarget.value)}
-          placeholder="Ammount"
-        />
-        <button onClick={createEscrow}>CreateEscrow</button>
-        <br />
-        <br />
-        <button onClick={getEscrowsInfo}>GetSenderInfo</button>
-        <button onClick={toggleActive}>ToggleActive</button>
-      </Typography>
-    </div>
+      <button onClick={connect}>Connect Wallet</button>
+      <Button color="defaultReverse" onClick={() => console.log('Cliquei')}>
+        Connect Wallet
+      </Button>
+      <Input placeholder="teste" />
+      <br />
+      {account || ''}
+      <br />
+      <br />
+      <br />
+      <input
+        value={id}
+        onChange={e => setId(parseFloat(e.currentTarget.value))}
+        placeholder="ID"
+      />
+      <br />
+      <input
+        value={value}
+        onChange={e => setValue(e.currentTarget.value)}
+        placeholder="Value"
+      />
+      <br />
+      <button onClick={payEscrow}>Pay Escrow</button>
+      <br />
+      <br />
+      <input
+        value={ammount}
+        onChange={e => setAmmount(e.currentTarget.value)}
+        placeholder="Ammount"
+      />
+      <button onClick={createEscrow}>CreateEscrow</button>
+      <br />
+      <br />
+      <button onClick={getEscrowsInfo}>GetSenderInfo</button>
+      <button onClick={toggleActive}>ToggleActive</button>
+    </>
   )
 }
 
