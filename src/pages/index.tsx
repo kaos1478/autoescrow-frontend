@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { useWeb3React } from '@web3-react/core'
 
-import Typography from '@/components/atoms/Typography'
 import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
 import useInjectedConnector from '@/hooks/useInjectedConnector'
+import Button from '@/components/atoms/Button'
 
 const Home: NextPage = () => {
   const { activate, account } = useWeb3React()
@@ -61,18 +61,18 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div>
+    <>
       <Head>
         <title>Create Next App</title>
         <meta name="description" content="NextJS ts template" />
       </Head>
-      <button onClick={connect}>
-        <Typography as="body4">Connect Wallet</Typography>
-      </button>
+      <button onClick={connect}>Connect Wallet</button>
+      <Button color="defaultReverse" onClick={() => console.log('Cliquei')}>
+        Connect Wallet
+      </Button>
       <br />
-      {account}
+      {account || ''}
       <br />
-      {connect}
       <br />
       <br />
       <input
@@ -100,7 +100,7 @@ const Home: NextPage = () => {
       <br />
       <button onClick={getEscrowsInfo}>GetSenderInfo</button>
       <button onClick={toggleActive}>ToggleActive</button>
-    </div>
+    </>
   )
 }
 
