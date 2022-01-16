@@ -10,7 +10,7 @@ export const parsedTypographys = {
   heading1: {
     tag: 'h1',
     style: css`
-      font-size: ${props => props.theme.fontSizes.large};
+      font-size: ${props => props.theme.sizes.font.large};
       font-weight: 400;
       color: ${props => props.theme.colors.text.light};
     `
@@ -18,7 +18,7 @@ export const parsedTypographys = {
   heading2: {
     tag: 'h2',
     style: css`
-      font-size: ${props => props.theme.fontSizes.medium};
+      font-size: ${props => props.theme.sizes.font.medium};
       font-weight: 400;
       color: ${props => props.theme.colors.text.light};
     `
@@ -26,7 +26,7 @@ export const parsedTypographys = {
   body1: {
     tag: 'span',
     style: css`
-      font-size: ${props => props.theme.fontSizes.medium};
+      font-size: ${props => props.theme.sizes.font.medium};
       font-weight: 400;
       color: ${props => props.theme.colors.text.light};
     `
@@ -34,7 +34,7 @@ export const parsedTypographys = {
   body2: {
     tag: 'span',
     style: css`
-      font-size: ${props => props.theme.fontSizes.ultraLarge};
+      font-size: ${props => props.theme.sizes.font.ultraLarge};
       font-weight: 100;
       color: ${props => props.theme.colors.text.light};
     `
@@ -42,7 +42,7 @@ export const parsedTypographys = {
   body3: {
     tag: 'span',
     style: css`
-      font-size: ${props => props.theme.fontSizes.small};
+      font-size: ${props => props.theme.sizes.font.small};
       font-weight: 400;
       color: ${props => props.theme.colors.text.light};
     `
@@ -50,7 +50,7 @@ export const parsedTypographys = {
   body4: {
     tag: 'span',
     style: css`
-      font-size: ${props => props.theme.fontSizes.ultraSmall};
+      font-size: ${props => props.theme.sizes.font.ultraSmall};
       font-weight: 400;
       color: ${props => props.theme.colors.text.light};
     `
