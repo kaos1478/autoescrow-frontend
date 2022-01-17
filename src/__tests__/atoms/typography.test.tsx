@@ -2,12 +2,12 @@
  * @jest-environment jsdom
  */
 
+import { renderWithTheme } from '@/utils/tests'
 import { screen } from '@testing-library/react'
 import Typography from '@/components/atoms/Typography'
-import { renderWithTheme } from '@/utils/tests'
 
 describe('Home', () => {
-  it('renders a button', () => {
+  it('renders typographys', () => {
     renderWithTheme(<Typography as="heading1">Heading1</Typography>)
     renderWithTheme(<Typography as="heading2">Heading2</Typography>)
     renderWithTheme(<Typography as="body1">Body1</Typography>)

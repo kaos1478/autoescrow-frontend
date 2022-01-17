@@ -71,7 +71,7 @@ const Home: NextPage = () => {
       <Button color="defaultReverse" onClick={() => console.log('Cliquei')}>
         Connect Wallet
       </Button>
-      <Input placeholder="teste" />
+      <Input placeholder="teste" value="ué" />
       <br />
       {account || ''}
       <br />
