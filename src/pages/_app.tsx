@@ -1,4 +1,4 @@
-import GlobalStyles from 'styles/global'
+import GlobalStyles from '@/styles/global'
 import { ThemeProvider } from 'styled-components'
 import { Web3ReactProvider } from '@web3-react/core'
 import type { AppProps } from 'next/app'

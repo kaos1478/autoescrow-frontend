@@ -6,6 +6,18 @@ interface IContainerProps extends ITypographyProps {
   styles?: string
 }
 
+export const textColors = {
+  light: css`
+    color: ${props => props.theme.colors.text.light};
+  `,
+  dark: css`
+    color: ${props => props.theme.colors.text.dark};
+  `,
+  primary: css`
+    color: ${props => props.theme.colors.primary};
+  `
+}
+
 export const parsedTypographys = {
   heading1: {
     tag: 'h1',
@@ -68,6 +80,7 @@ export const Container = styled('div').attrs<ITypographyProps>(
   })
 )<IContainerProps>`
   ${props => props.styles};
+  ${props => textColors[props.color || 'light']}
   margin-bottom: ${props => props.marginBottom || '0'};
   margin-left: ${props => props.marginLeft || '0'};
   margin-right: ${props => props.marginRight || '0'};

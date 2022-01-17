@@ -7,6 +7,7 @@ const mq = facepaint(theme.breakpoints)
 
 export default createGlobalStyle<{ theme: ThemeType }>`
   * {
+    -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     margin: 0;
     padding: 0;

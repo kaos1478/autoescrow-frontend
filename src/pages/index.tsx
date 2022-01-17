@@ -7,6 +7,7 @@ import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
 import useInjectedConnector from '@/hooks/useInjectedConnector'
 import Button from '@/components/atoms/Button'
 import Input from '@/components/atoms/Input'
+import SideBarMenu from '@/components/molecules/SideBarMenu'
 
 const Home: NextPage = () => {
   const { activate, account } = useWeb3React()
@@ -71,10 +72,12 @@ const Home: NextPage = () => {
       <Button color="defaultReverse" onClick={() => console.log('Cliquei')}>
         Connect Wallet
       </Button>
-      <Input placeholder="teste" value="ué" />
+      <Input placeholder="teste" />
       <br />
       {account || ''}
       <br />
+      <br />
+      <SideBarMenu />
       <br />
       <br />
       <input
