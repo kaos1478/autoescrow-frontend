@@ -1,9 +1,10 @@
 // External libs
-import SideBar from '@/components/organisms/SideBar'
 
 // Assets
 
 // Componentes
+import SideBar from '@/components/organisms/SideBar'
+import TopBar from '@/components/organisms/TopBar'
 
 // Subcomponentes and style
 import * as Styled from './styles'
@@ -16,7 +17,10 @@ const Layout: React.FC = ({ children }) => {
   return (
     <Styled.Container>
       <SideBar />
-      {children}
+      <Styled.Content>
+        <TopBar />
+        {children}
+      </Styled.Content>
     </Styled.Container>
   )
 }

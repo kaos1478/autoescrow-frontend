@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
 export const Container = styled.ul`
+  display: flex;
   list-style: none;
-  width: 100%;
+
+  & > li {
+    margin-right: 0.6rem;
+  }
 `

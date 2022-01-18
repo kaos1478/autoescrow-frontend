@@ -12,11 +12,7 @@ import * as Styled from './styles'
 // Types
 
 const LastEscrows: React.FC = () => {
-  return (
-    <Styled.Container>
-      <input />
-    </Styled.Container>
-  )
+  return <Styled.Container></Styled.Container>
 }
 
 export default LastEscrows
