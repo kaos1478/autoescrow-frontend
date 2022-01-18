@@ -13,6 +13,10 @@ import * as Styled from './styles'
 // Types
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color: keyof typeof Styled.colorVariants
+  marginBottom?: string
+  marginLeft?: string
+  marginRight?: string
+  marginTop?: string
 }
 
 const Button: React.FC<IButtonProps> = ({ children, ...rest }) => {
