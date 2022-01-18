@@ -3,6 +3,7 @@
 // Assets
 
 // Componentes
+import Page from '@/components/templates/Page'
 
 // Subcomponentes and style
 import * as Styled from './styles'
@@ -12,7 +13,7 @@ import * as Styled from './styles'
 // Types
 
 const LastEscrows: React.FC = () => {
-  return <Styled.Container></Styled.Container>
+  return <Page>Teste</Page>
 }
 
 export default LastEscrows
