@@ -76,6 +76,9 @@ const theme = {
       medium: '1.125rem',
       large: '1.5rem',
       ultraLarge: '2.25rem'
+    },
+    card: {
+      borderRadius: '0.3125rem'
     }
   },
   breakpoints
