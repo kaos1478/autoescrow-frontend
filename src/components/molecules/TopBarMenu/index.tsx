@@ -4,7 +4,7 @@
 import { BellSVG, MessageSquareSVG } from '@/assets/svgs'
 
 // Componentes
-import TopBarMenuItem from '@/components/atoms/TopBarMenuItem'
+import TopBarMenuItem from '@/components/molecules/TopBarMenu/TopBarMenuItem'
 
 // Subcomponentes and style
 import * as Styled from './styles'

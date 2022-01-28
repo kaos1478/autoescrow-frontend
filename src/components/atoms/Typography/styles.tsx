@@ -86,4 +86,5 @@ export const Container = styled('div').attrs<ITypographyProps>(
   margin-right: ${props => props.marginRight || '0'};
   margin-top: ${props => props.marginTop || '0'};
   text-align: ${props => props.align || 'inherit'};
+  text-overflow: ellipse;
 `

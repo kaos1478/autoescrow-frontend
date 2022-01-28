@@ -10,7 +10,7 @@ import {
 } from '@/assets/svgs'
 
 // Componentes
-import SideBarMenuItem from '@/components/atoms/SideBarMenuItem'
+import SideBarMenuItem from '@/components/molecules/SideBarMenu/SideBarMenuItem'
 
 // Subcomponentes and style
 import * as Styled from './styles'

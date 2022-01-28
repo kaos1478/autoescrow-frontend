@@ -5,7 +5,9 @@
 // Componentes
 
 // Subcomponentes and style
-import CardListItem, { ICardListItem } from '@/components/atoms/CardListItem'
+import CardListItem, {
+  ICardListItem
+} from '@/components/molecules/CardList/CardListItem'
 import * as Styled from './styles'
 
 // Services
