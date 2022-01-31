@@ -5,7 +5,7 @@
 // Componentes
 import Button from '@/components/atoms/Button'
 import Typography from '@/components/atoms/Typography'
-import SideBarMenu from '@/components/molecules/SideBarMenu'
+import SideBarMenu from '@/components/organisms/SideBar/SideBarMenu'
 
 // Subcomponentes and style
 import * as Styled from './styles'

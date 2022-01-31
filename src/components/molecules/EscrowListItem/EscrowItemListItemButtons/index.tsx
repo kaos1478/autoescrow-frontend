@@ -4,7 +4,6 @@
 
 // Componentes
 import Button from '@/components/atoms/Button'
-import TopBarMenu from '@/components/organisms/TopBar/TopBarMenu'
 
 // Subcomponentes and style
 import * as Styled from './styles'
@@ -13,13 +12,12 @@ import * as Styled from './styles'
 
 // Types
 
-const TopBar: React.FC = () => {
+const EscrowItemListItemButtons: React.FC = () => {
   return (
     <Styled.Container>
-      <TopBarMenu />
-      <Button color="defaultReverse">Connect Wallet</Button>
+      <Button color="default">Pay</Button>
     </Styled.Container>
   )
 }
 
-export default TopBar
+export default EscrowItemListItemButtons

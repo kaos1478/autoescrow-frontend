@@ -5,22 +5,20 @@
 // Componentes
 
 // Subcomponentes and style
-import EscrowListItem, {
-  IEscrowListItem
-} from '@/components/molecules/EscrowList/EscrowListItem'
+import EscrowListItem from '@/components/molecules/EscrowListItem'
 import * as Styled from './styles'
 
 // Services
 
 // Types
 interface IEscrowListProps {
-  escrows: IEscrowListItem[]
+  escrows: any[]
 }
 
 const EscrowList: React.FC<IEscrowListProps> = ({ escrows }) => {
   return (
     <Styled.Container>
-      {escrows.map(item => (
+      {escrows?.map(item => (
         <EscrowListItem key={item.id} escrow={item} />
       ))}
     </Styled.Container>

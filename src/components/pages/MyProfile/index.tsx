@@ -11,8 +11,8 @@ import Page from '@/components/templates/Page'
 
 // Types
 
-const LastEscrows: React.FC = () => {
-  return <Page title="Last Escrows"></Page>
+const MyProfile: React.FC = () => {
+  return <Page title="My Profile"></Page>
 }
 
-export default LastEscrows
+export default MyProfile

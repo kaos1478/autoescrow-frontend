@@ -5,7 +5,7 @@
 // Componentes
 
 // Subcomponentes and style
-import Typography from '../../../../atoms/Typography'
+import Typography from '../../../atoms/Typography'
 import * as Styled from './styles'
 
 // Services

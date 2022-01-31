@@ -10,7 +10,7 @@ import {
 } from '@/assets/svgs'
 
 // Componentes
-import SideBarMenuItem from '@/components/molecules/SideBarMenu/SideBarMenuItem'
+import SideBarMenuItem from '@/components/molecules/SideBarMenuItem'
 
 // Subcomponentes and style
 import * as Styled from './styles'
@@ -23,27 +23,27 @@ const SideBarMenu: React.FC = () => {
   const MENU_ITEM_LIST = [
     {
       icon: ActivitySVG,
-      link: '/',
+      link: '/LastEscrows',
       title: 'Last Escrows'
     },
     {
       icon: BookOpenSVG,
-      link: '/teste4',
+      link: '/MyEscrows',
       title: 'My Escrows'
     },
     {
       icon: UserSVG,
-      link: '/teste3',
+      link: '/MyProfile',
       title: 'My Profile'
     },
     {
       icon: SearchSVG,
-      link: '/teste2',
+      link: '/FindByID',
       title: 'Find by ID'
     },
     {
       icon: HelpCircleSVG,
-      link: '/teste',
+      link: '/Help',
       title: 'Help'
     }
   ]

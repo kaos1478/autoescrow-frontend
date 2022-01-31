@@ -4,10 +4,11 @@ export const Container = styled.div`
   display: flex;
   height: 100vh;
   width: 100vw;
+  background: red;
 `
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100vw - 13rem);
 `

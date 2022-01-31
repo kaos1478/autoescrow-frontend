@@ -9,12 +9,9 @@ export const Container = styled.div<TContainerProps>`
   align-items: center;
   justify-content: center;
   max-width: 25rem;
-  width: ${props => props.width};
+  max-width: ${props => props.width};
   overflow: hidden;
-
-  &:not(:last-child) {
-    margin-right: 1rem;
-  }
+  margin: auto;
 
   & > span {
     max-width: 100%;

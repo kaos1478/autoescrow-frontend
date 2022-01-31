@@ -11,8 +11,8 @@ import Page from '@/components/templates/Page'
 
 // Types
 
-const LastEscrows: React.FC = () => {
-  return <Page title="Last Escrows"></Page>
+const FindByID: React.FC = () => {
+  return <Page title="Find by ID"></Page>
 }
 
-export default LastEscrows
+export default FindByID

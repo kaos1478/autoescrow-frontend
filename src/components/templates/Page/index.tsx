@@ -5,14 +5,27 @@
 // Componentes
 
 // Subcomponentes and style
+import Typography from '@/components/atoms/Typography'
+import { ICardListItem } from '@/components/molecules/CardListItem'
+import CardList from '@/components/organisms/CardList'
 import * as Styled from './styles'
 
 // Services
 
 // Types
+interface IPageProps {
+  cards?: ICardListItem[]
+  title?: string
+}
 
-const Page: React.FC = ({ children }) => {
-  return <Styled.Container>{children}</Styled.Container>
+const Page: React.FC<IPageProps> = ({ cards, title, children }) => {
+  return (
+    <Styled.Container>
+      {cards && <CardList cards={cards} />}
+      {title && <Typography as="heading1">{title}</Typography>}
+      {children}
+    </Styled.Container>
+  )
 }
 
 export default Page

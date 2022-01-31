@@ -7,5 +7,5 @@ export const Container = styled.div`
   height: 3.8rem;
   justify-content: flex-end;
   padding: 0 2rem;
-  width: 100%;
+  width: calc(100vw - 13rem);
 `

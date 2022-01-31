@@ -7,13 +7,13 @@
 // Subcomponentes and style
 import CardListItem, {
   ICardListItem
-} from '@/components/molecules/CardList/CardListItem'
+} from '@/components/molecules/CardListItem'
 import * as Styled from './styles'
 
 // Services
 
 // Types
-interface ICardListProps {
+export interface ICardListProps {
   cards: ICardListItem[]
 }
 

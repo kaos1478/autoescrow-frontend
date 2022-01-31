@@ -6,3 +6,12 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export async function getServerSideProps() {
+  return {
+    redirect: {
+      destination: '/LastEscrows',
+      permanent: false
+    }
+  }
+}
