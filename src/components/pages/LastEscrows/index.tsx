@@ -3,6 +3,7 @@
 // Assets
 
 // Componentes
+import EscrowList from '@/components/organisms/EscrowList'
 import Page from '@/components/templates/Page'
 
 // Subcomponentes and style
@@ -11,8 +12,12 @@ import Page from '@/components/templates/Page'
 
 // Types
 
-const LastEscrows: React.FC = () => {
-  return <Page title="Last Escrows"></Page>
+const LastEscrowsPage: React.FC = () => {
+  return (
+    <Page title="Last Escrows">
+      <EscrowList />
+    </Page>
+  )
 }
 
-export default LastEscrows
+export default LastEscrowsPage
