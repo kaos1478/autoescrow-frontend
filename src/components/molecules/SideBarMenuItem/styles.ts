@@ -1,5 +1,8 @@
+import facepaint from 'facepaint'
 import styled, { css } from 'styled-components'
+import theme from '@/styles/theme'
 
+const mq = facepaint(theme.breakpoints)
 interface IContainerProps {
   active: boolean
 }
@@ -19,4 +22,8 @@ export const Container = styled.li<IContainerProps>`
   transition: all 0.5s;
 
   ${props => props.active && activeStyle}
+
+  & > span {
+    ${mq({ display: ['none', 'none', 'block'] })}
+  }
 `

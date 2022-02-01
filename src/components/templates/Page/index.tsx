@@ -22,8 +22,10 @@ const Page: React.FC<IPageProps> = ({ cards, title, children }) => {
   return (
     <Styled.Container>
       {cards && <CardList cards={cards} />}
-      {title && <Typography as="heading1">{title}</Typography>}
-      {children}
+      <Styled.Content>
+        {title && <Typography as="heading1">{title}</Typography>}
+        {children}
+      </Styled.Content>
     </Styled.Container>
   )
 }
