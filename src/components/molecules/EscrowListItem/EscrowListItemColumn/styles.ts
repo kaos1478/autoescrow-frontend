@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { IEscrowItemListItemColumnProps } from '.'
+import { IEscrowListItemColumnProps } from '.'
 
-type TContainerProps = Pick<IEscrowItemListItemColumnProps, 'width'>
+type TContainerProps = Pick<IEscrowListItemColumnProps, 'width'>
 
 export const Container = styled.div<TContainerProps>`
   display: flex;

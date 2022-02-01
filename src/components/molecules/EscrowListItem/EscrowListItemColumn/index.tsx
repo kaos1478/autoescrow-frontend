@@ -14,14 +14,14 @@ import * as Styled from './styles'
 import { Ellipse } from '@/utils/text'
 
 // Types
-export interface IEscrowItemListItemColumnProps {
+export interface IEscrowListItemColumnProps {
   title: string
   value: string | number
   width: string
   ellipse?: boolean
 }
 
-const EscrowItemListItemColumn: React.FC<IEscrowItemListItemColumnProps> = ({
+const EscrowListItemColumn: React.FC<IEscrowListItemColumnProps> = ({
   title,
   value,
   width,
@@ -37,4 +37,4 @@ const EscrowItemListItemColumn: React.FC<IEscrowItemListItemColumnProps> = ({
   )
 }
 
-export default EscrowItemListItemColumn
+export default EscrowListItemColumn
