@@ -5,7 +5,7 @@ import * as Styled from './styles'
 export interface ITypographyProps {
   align?: string
   as: keyof typeof Styled.parsedTypographys
-  color?: string
+  color?: keyof typeof Styled.textColors
   marginBottom?: string
   marginLeft?: string
   marginRight?: string
