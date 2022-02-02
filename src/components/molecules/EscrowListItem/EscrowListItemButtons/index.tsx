@@ -1,4 +1,5 @@
 // External libs
+import { toast } from 'react-toastify'
 
 // Assets
 
@@ -17,16 +18,28 @@ interface IEscrowListItemButtonsProps {
   id: number
 }
 
-const EscrowListItemButtons: React.FC<IEscrowListItemButtonsProps> = ({ammount, id}) => {
+const EscrowListItemButtons: React.FC<IEscrowListItemButtonsProps> = ({
+  ammount,
+  id
+}) => {
   const contract = useAutoEscrowContract()
 
+  const teste = () =>
+    toast.promise(payEscrow, {
+      pending: 'Processing',
+      success: 'Success',
+      error: 'Rejected'
+    })
+
   const payEscrow = async () => {
-    await contract?.payEscrow(id, {value: ammount})
+    await contract?.payEscrow(id, { value: ammount })
   }
 
   return (
     <Styled.Container>
-      <Button onClick={payEscrow} color="default">Pay</Button>
+      <Button onClick={teste} color="default">
+        Pay
+      </Button>
     </Styled.Container>
   )
 }

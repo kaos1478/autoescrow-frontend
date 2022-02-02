@@ -39,11 +39,7 @@ const EscrowListItem: React.FC<IEscrowListItemProps> = ({ escrow }) => {
 
   return (
     <Styled.Container>
-      <EscrowListItemColumn
-        width="5rem"
-        title="ID"
-        value={parsedEscrows.id}
-      />
+      <EscrowListItemColumn width="5rem" title="ID" value={parsedEscrows.id} />
       <EscrowListItemColumn
         width="10rem"
         title="Ammount"
@@ -62,7 +58,10 @@ const EscrowListItem: React.FC<IEscrowListItemProps> = ({ escrow }) => {
         ellipse
       />
       <EscrowListItemColumn width="10rem" title="Status" value={'Open'} />
-      <EscrowListItemButtons id={parsedEscrows.id} ammount={web3.utils.toWei(ethers.utils.formatEther(escrow[2]))} />
+      <EscrowListItemButtons
+        id={parsedEscrows.id}
+        ammount={web3.utils.toWei(ethers.utils.formatEther(escrow[2]))}
+      />
     </Styled.Container>
   )
 }
