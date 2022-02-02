@@ -1,6 +1,5 @@
 // External libs
 import { ethers } from 'ethers'
-import web3 from 'web3'
 
 // Assets
 
@@ -15,11 +14,10 @@ import * as Styled from './styles'
 
 // Types
 export interface IEscrowListItem {
-  id: number
-  ammount: number
-  owner: string
-  payer: string
-  status: string
+  id: string
+  sender: string
+  timeStamp: string
+  weiAmount: number
 }
 
 interface IEscrowListItemProps {
@@ -27,13 +25,15 @@ interface IEscrowListItemProps {
 }
 
 const EscrowListItem: React.FC<IEscrowListItemProps> = ({ escrow }) => {
+  const escrowObj = { ...escrow }
   const parsedEscrows = {
-    sender: escrow[0],
-    id: web3.utils.toNumber(escrow[1]), // web3.utils.hexToNumber(web3.utils.fromDecimal(escrow[1])),
-    ammount: ethers.utils.formatEther(escrow[2]),
-    timeStamp: 'timeStamp',
+    sender: escrowObj.sender,
+    id: parseInt(escrowObj.id), // web3.utils.hexToNumber(web3.utils.fromDecimal(escrow[1])),
+    ammount: escrowObj.weiAmount.toString(10),
+    timeStamp: new Date(parseInt(escrowObj.timeStamp) * 1000),
     payer: null
   }
+  console.log('escrowObj: ', parsedEscrows)
 
   console.log(parsedEscrows.id)
 
@@ -43,7 +43,7 @@ const EscrowListItem: React.FC<IEscrowListItemProps> = ({ escrow }) => {
       <EscrowListItemColumn
         width="10rem"
         title="Ammount"
-        value={parsedEscrows.ammount}
+        value={ethers.utils.formatEther(parsedEscrows.ammount)}
       />
       <EscrowListItemColumn
         width="20rem"
@@ -60,7 +60,7 @@ const EscrowListItem: React.FC<IEscrowListItemProps> = ({ escrow }) => {
       <EscrowListItemColumn width="10rem" title="Status" value={'Open'} />
       <EscrowListItemButtons
         id={parsedEscrows.id}
-        ammount={web3.utils.toWei(ethers.utils.formatEther(escrow[2]))}
+        ammount={parsedEscrows.ammount}
       />
     </Styled.Container>
   )
