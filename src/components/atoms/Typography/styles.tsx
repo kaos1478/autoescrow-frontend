@@ -60,7 +60,7 @@ export const parsedTypographys = {
     `
   },
   body4: {
-    tag: 'span',
+    tag: 'p',
     style: css`
       font-size: ${props => props.theme.sizes.font.ultraSmall};
       font-weight: 400;

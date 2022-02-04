@@ -17,6 +17,7 @@ export const Container = styled.input<IContainerProps>`
   color: ${props => props.theme.colors.input.text};
   font-size: ${props => props.theme.sizes.font.small};
   height: ${props => props.theme.sizes.input.height};
+  margin: ${props => props.margin};
   outline: none;
   overflow: hidden;
   padding: 0 0.5rem;

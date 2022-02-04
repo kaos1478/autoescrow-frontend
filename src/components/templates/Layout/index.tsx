@@ -1,4 +1,6 @@
 // External libs
+import { useWeb3React } from '@web3-react/core'
+import { useEffect } from 'react'
 
 // Assets
 
@@ -10,10 +12,21 @@ import TopBar from '@/components/organisms/TopBar'
 import * as Styled from './styles'
 
 // Services
+import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
+import { useAppDispatch } from '@/redux/store'
+import { asyncGetContractInfo } from '@/redux/slicers/contractInfoSlice'
 
 // Types
 
 const Layout: React.FC = ({ children }) => {
+  const contract = useAutoEscrowContract()
+  const { account, chainId } = useWeb3React()
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(asyncGetContractInfo(contract))
+  }, [account, chainId])
+
   return (
     <Styled.Container>
       <SideBar />

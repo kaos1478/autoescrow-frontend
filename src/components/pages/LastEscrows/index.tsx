@@ -1,41 +1,40 @@
 // External libs
+import { useEffect } from 'react'
+import { useWeb3React } from '@web3-react/core'
 
 // Assets
 
 // Componentes
 import EscrowList from '@/components/organisms/EscrowList'
 import Page from '@/components/templates/Page'
-import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
-import { useWeb3React } from '@web3-react/core'
-import { useEffect, useState } from 'react'
 
 // Subcomponentes and style
 
 // Services
+import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
+import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
+import { asyncGetLastEscrows } from '@/redux/slicers/lastEscrowsSlice'
 
 // Types
 
 const LastEscrowsPage: React.FC = () => {
   const contract = useAutoEscrowContract()
-  const [lastEscrows, setLastEscrows] = useState<[]>([])
-  const { account } = useWeb3React()
-
-  const getLastEscrows = async () => {
-    try {
-      const resp = await contract?.getLastEscrows(10)
-      setLastEscrows(resp)
-    } catch {
-      console.error('Ops!')
-    }
-  }
+  const { account, chainId } = useWeb3React()
+  const dispatch = useAppDispatch()
+  const escrows = useAppSelector(
+    (state: RootState) => state.lastEscrows.escrows
+  )
+  const fetching = useAppSelector(
+    (state: RootState) => state.lastEscrows.fetching
+  )
 
   useEffect(() => {
-    getLastEscrows()
-  }, [account])
+    dispatch(asyncGetLastEscrows(contract))
+  }, [account, chainId])
 
   return (
-    <Page title="Last Escrows">
-      <EscrowList escrows={lastEscrows} />
+    <Page title="Last Escrows" loading={fetching}>
+      <EscrowList escrows={escrows} />
     </Page>
   )
 }
