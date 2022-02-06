@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Contract } from 'ethers'
 import { AppDispatch, AppThunk } from '../store'
 import { TGetLastEscrows } from '@/types/autoEscrowContractTypes'
+import { hexDateToNumber } from '@/utils/contract'
 
 export interface IContractInfoState {
   escrows: TGetLastEscrows
@@ -40,7 +41,7 @@ export const asyncGetLastEscrows = (contract: Contract | null): AppThunk => {
         parsedLastEscrows.push({
           id: parseInt(escrow.id),
           sender: escrow.sender,
-          timeStamp: parseInt(escrow.timeStamp) * 1000,
+          timeStamp: hexDateToNumber(escrow.timeStamp),
           weiAmount: parseInt(escrow.weiAmount)
         })
       })

@@ -1,7 +1,8 @@
-import { IGetContratInfo } from '@/types/autoEscrowContractTypes'
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Contract } from 'ethers'
 import { AppDispatch, AppThunk } from '../store'
+import { Contract } from 'ethers'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { IGetContratInfo } from '@/types/autoEscrowContractTypes'
+import { hexToDay } from '@/utils/contract'
 
 export interface IContractInfoState extends IGetContratInfo {
   fetching: boolean
@@ -56,10 +57,10 @@ export const asyncGetContractInfo = (contract: Contract | null): AppThunk => {
         counter: parseInt(resp.counter),
         disputeEscrowsLenght: parseInt(resp.disputeEscrowsLenght),
         minValueWei: parseInt(resp.minValueWei),
-        openDeadline: parseInt(resp.openDeadline) / 86400,
+        openDeadline: hexToDay(resp.openDeadline),
         openEscrowsLenght: parseInt(resp.openEscrowsLenght),
         owner: resp.owner,
-        paidDeadline: parseInt(resp.paidDeadline) / 86400,
+        paidDeadline: hexToDay(resp.paidDeadline),
         paidEscrowsLenght: parseInt(resp.paidEscrowsLenght),
         taxPercentage: parseInt(resp.taxPercentage)
       }
