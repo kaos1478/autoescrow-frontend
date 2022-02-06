@@ -1,16 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Contract } from 'ethers'
 import { AppDispatch, AppThunk } from '../store'
-
-export interface ILastEscrows {
-  id: number
-  sender: string
-  timeStamp: number
-  weiAmount: number
-}
+import { TGetLastEscrows } from '@/types/autoEscrowContractTypes'
 
 export interface IContractInfoState {
-  escrows: ILastEscrows[]
+  escrows: TGetLastEscrows
   fetching: boolean
 }
 
@@ -23,7 +17,7 @@ export const lastEscrowsSlice = createSlice({
   name: 'lastEscrows',
   initialState,
   reducers: {
-    setLastEscrows: (state, action: PayloadAction<ILastEscrows[]>) => {
+    setLastEscrows: (state, action: PayloadAction<TGetLastEscrows>) => {
       state.escrows = action.payload
     },
     setFetching: (state, action: PayloadAction<boolean>) => {
@@ -37,7 +31,7 @@ export const { setLastEscrows, setFetching } = lastEscrowsSlice.actions
 
 export const asyncGetLastEscrows = (contract: Contract | null): AppThunk => {
   return async (dispatch: AppDispatch) => {
-    const parsedLastEscrows: ILastEscrows[] = []
+    const parsedLastEscrows: TGetLastEscrows = []
     try {
       dispatch(setFetching(true))
       const resp = await contract?.getLastEscrows(10)

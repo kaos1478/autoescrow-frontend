@@ -1,40 +1,31 @@
+import { IGetContratInfo } from '@/types/autoEscrowContractTypes'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Contract } from 'ethers'
 import { AppDispatch, AppThunk } from '../store'
 
-export interface IContractInfoState {
-  owner: string
-  taxPercentage: number
-  openDeadline: number
-  paidDeadline: number
-  counter: number
-  openEscrowsLenght: number
-  paidEscrowsLenght: number
-  disputeEscrowsLenght: number
-  active: boolean
+export interface IContractInfoState extends IGetContratInfo {
   fetching: boolean
 }
 
-type TSetContractInfo = Omit<IContractInfoState, 'fetching'>
-
 const initialState: IContractInfoState = {
-  owner: '',
-  taxPercentage: 0,
-  openDeadline: 0,
-  paidDeadline: 0,
-  counter: 0,
-  openEscrowsLenght: 0,
-  paidEscrowsLenght: 0,
-  disputeEscrowsLenght: 0,
   active: false,
-  fetching: false
+  counter: 0,
+  disputeEscrowsLenght: 0,
+  fetching: false,
+  minValueWei: 0,
+  openDeadline: 0,
+  openEscrowsLenght: 0,
+  owner: '',
+  paidDeadline: 0,
+  paidEscrowsLenght: 0,
+  taxPercentage: 0
 }
 
 export const contractInfoSlice = createSlice({
   name: 'contractInfo',
   initialState,
   reducers: {
-    setContractInfo: (state, action: PayloadAction<TSetContractInfo>) => {
+    setContractInfo: (state, action: PayloadAction<IGetContratInfo>) => {
       state.owner = action.payload.owner
       state.taxPercentage = action.payload.taxPercentage
       state.openDeadline = action.payload.openDeadline
@@ -60,16 +51,17 @@ export const asyncGetContractInfo = (contract: Contract | null): AppThunk => {
       dispatch(setFetching(true))
       const { ...resp } = await contract?.getContractInfo()
       dispatch(setFetching(false))
-      const parsedContractInfo: TSetContractInfo = {
-        owner: resp.owner,
-        taxPercentage: parseInt(resp.taxPercentage),
-        openDeadline: parseInt(resp.openDeadline) / 86400,
-        paidDeadline: parseInt(resp.paidDeadline) / 86400,
+      const parsedContractInfo: IGetContratInfo = {
+        active: resp.active,
         counter: parseInt(resp.counter),
-        openEscrowsLenght: parseInt(resp.openEscrowsLenght),
-        paidEscrowsLenght: parseInt(resp.paidEscrowsLenght),
         disputeEscrowsLenght: parseInt(resp.disputeEscrowsLenght),
-        active: resp.active
+        minValueWei: parseInt(resp.minValueWei),
+        openDeadline: parseInt(resp.openDeadline) / 86400,
+        openEscrowsLenght: parseInt(resp.openEscrowsLenght),
+        owner: resp.owner,
+        paidDeadline: parseInt(resp.paidDeadline) / 86400,
+        paidEscrowsLenght: parseInt(resp.paidEscrowsLenght),
+        taxPercentage: parseInt(resp.taxPercentage)
       }
       dispatch(setContractInfo(parsedContractInfo))
     } catch (e) {

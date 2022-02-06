@@ -1,23 +1,32 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+interface IContainerProps {
+  isOpen: boolean
+}
+
+export const Container = styled.div<IContainerProps>`
   align-items: center;
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
+  transition: all 1s;
+  opacity: ${props => (props.isOpen ? '1' : '0')};
   height: 100vh;
   justify-content: center;
   position: fixed;
   width: 100vw;
   z-index: 10;
+  pointer-events: ${props => (props.isOpen ? 'inherit' : 'none')};
 `
 
-export const Content = styled.div`
+export const Content = styled.div<IContainerProps>`
   background-color: ${props => props.theme.colors.background.secondary};
   border-radius: ${props => props.theme.sizes.button.borderRadius};
   overflow: hidden;
   position: relative;
   width: 27rem;
+  transition: all 1s;
+  transform: translateY(${props => (props.isOpen ? '0' : '100%')});
 `
 
 export const Header = styled.div`

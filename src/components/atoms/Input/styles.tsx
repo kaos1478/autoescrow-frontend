@@ -15,7 +15,7 @@ export const Container = styled.input<IContainerProps>`
   border-radius: ${props => props.theme.sizes.input.borderRadius};
   border: 1px solid ${props => props.theme.colors.input.border};
   color: ${props => props.theme.colors.input.text};
-  font-size: ${props => props.theme.sizes.font.small};
+  font-size: ${props => props.theme.sizes.font.medium};
   height: ${props => props.theme.sizes.input.height};
   margin: ${props => props.margin};
   outline: none;
@@ -25,6 +25,7 @@ export const Container = styled.input<IContainerProps>`
 
   &::placeholder {
     font-size: ${props => props.theme.sizes.font.medium};
+    color: ${props => props.theme.colors.input.placeHolder};
   }
 
   ${props => props.active && activeStyle};
