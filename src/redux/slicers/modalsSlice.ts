@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface INewEscrowModal {
-  amount: number | string
+  amount: number
   isOpen: boolean
 }
 
@@ -11,7 +11,7 @@ export interface ModalsState {
 
 const initialState: ModalsState = {
   newEscrow: {
-    amount: '',
+    amount: 0,
     isOpen: false
   }
 }

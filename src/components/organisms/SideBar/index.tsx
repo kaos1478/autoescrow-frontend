@@ -27,7 +27,7 @@ const SideBar: React.FC = () => {
       dispatch(
         setOpen({
           modal: 'newEscrow',
-          state: { amount: '', isOpen: true }
+          state: { amount: 0, isOpen: true }
         })
       )
     } else {

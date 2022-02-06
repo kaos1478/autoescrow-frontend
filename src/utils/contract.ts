@@ -1,9 +1,11 @@
-import web3 from 'web3'
-import ethers from 'ethers'
+import { BigNumber } from 'bignumber.js'
+import { ethers } from 'ethers'
 
-export const toWei = (amount: string) => web3.utils.toWei(amount)
+export const toWei = (amount: number) =>
+  ethers.utils.parseEther(amount.toString()) // new BigNumber(amount).multipliedBy(new BigNumber(10).pow(18)).toNumber() // web3.utils.toWei(amount.toString())
 
-export const toEther = (amount: string) => ethers.utils.formatEther(amount)
+export const toEther = (amount: number) =>
+  new BigNumber(amount).dividedBy(new BigNumber(10).pow(18)).toNumber()
 
 export const hexToDay = (value: string) => parseInt(value) / 86400
 
