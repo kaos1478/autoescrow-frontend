@@ -16,9 +16,10 @@ import * as Styled from './styles'
 interface IPageProps {
   cards?: ICardListItem[]
   title?: string
+  loading?: boolean
 }
 
-const Page: React.FC<IPageProps> = ({ cards, title, children }) => {
+const Page: React.FC<IPageProps> = ({ cards, title, loading, children }) => {
   return (
     <Styled.Container>
       {cards && <CardList cards={cards} />}
@@ -26,6 +27,7 @@ const Page: React.FC<IPageProps> = ({ cards, title, children }) => {
         {title && (
           <Styled.Title>
             <Typography as="heading1">{title}</Typography>
+            {loading && <Typography as="heading1"> - Fetching</Typography>}
           </Styled.Title>
         )}
         {children}

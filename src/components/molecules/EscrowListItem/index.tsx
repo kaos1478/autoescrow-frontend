@@ -1,5 +1,5 @@
 // External libs
-import { ethers } from 'ethers'
+import { toEther } from '@/utils/contract'
 
 // Assets
 
@@ -29,13 +29,10 @@ const EscrowListItem: React.FC<IEscrowListItemProps> = ({ escrow }) => {
   const parsedEscrows = {
     sender: escrowObj.sender,
     id: parseInt(escrowObj.id), // web3.utils.hexToNumber(web3.utils.fromDecimal(escrow[1])),
-    ammount: escrowObj.weiAmount.toString(10),
+    ammount: toEther(escrowObj.weiAmount),
     timeStamp: new Date(parseInt(escrowObj.timeStamp) * 1000),
     payer: null
   }
-  console.log('escrowObj: ', parsedEscrows)
-
-  console.log(parsedEscrows.id)
 
   return (
     <Styled.Container>
@@ -43,7 +40,7 @@ const EscrowListItem: React.FC<IEscrowListItemProps> = ({ escrow }) => {
       <EscrowListItemColumn
         width="10rem"
         title="Ammount"
-        value={ethers.utils.formatEther(parsedEscrows.ammount)}
+        value={parsedEscrows.ammount}
       />
       <EscrowListItemColumn
         width="20rem"
@@ -60,7 +57,7 @@ const EscrowListItem: React.FC<IEscrowListItemProps> = ({ escrow }) => {
       <EscrowListItemColumn width="10rem" title="Status" value={'Open'} />
       <EscrowListItemButtons
         id={parsedEscrows.id}
-        ammount={parsedEscrows.ammount}
+        amount={parsedEscrows.ammount}
       />
     </Styled.Container>
   )

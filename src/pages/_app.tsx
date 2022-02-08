@@ -11,12 +11,14 @@ import Layout from '@/components/templates/Layout'
 import { store } from '@/redux/store'
 
 import 'react-toastify/dist/ReactToastify.css'
+import { ModalCreateEscrow } from '@/components/organisms/Modals'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <Web3ReactProvider getLibrary={useLibrary}>
         <ThemeProvider theme={theme}>
+          <ModalCreateEscrow />
           <Layout>
             <Component {...pageProps} />
           </Layout>

@@ -11,11 +11,14 @@ import * as Styled from './styles'
 // Services
 
 // Types
-export interface IINputProps extends InputHTMLAttributes<HTMLInputElement> {}
+export interface IINputProps extends InputHTMLAttributes<HTMLInputElement> {
+  margin?: string
+}
 
 const Input: React.FC<IINputProps> = ({
   onFocus = () => {},
   onBlur = () => {},
+  margin = 'inherit',
   ...rest
 }) => {
   const [active, setActive] = useState<boolean>(false)
@@ -32,9 +35,10 @@ const Input: React.FC<IINputProps> = ({
 
   return (
     <Styled.Container
-      onFocus={handleOnFocus}
-      onBlur={handleOnBlur}
       active={active}
+      margin={margin}
+      onBlur={handleOnBlur}
+      onFocus={handleOnFocus}
       {...rest}
     />
   )
