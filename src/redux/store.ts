@@ -3,7 +3,8 @@ import {
   counterReducer,
   contractInfoReducer,
   lastEscrowsReducer,
-  modalsReducer
+  modalsReducer,
+  myEscrowsReducer
 } from '@/redux/slicers'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
@@ -12,7 +13,8 @@ export const store = configureStore({
     counter: counterReducer,
     contractInfo: contractInfoReducer,
     lastEscrows: lastEscrowsReducer,
-    modals: modalsReducer
+    modals: modalsReducer,
+    myEscrows: myEscrowsReducer
   }
 })
 

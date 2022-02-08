@@ -1,11 +1,12 @@
-export interface ILastEscrows {
-  id: number
-  sender: string
-  timeStamp: number
-  weiAmount: number
-}
+import {
+  IOpensAsSender,
+  IPaidsAsPayer,
+  IPaidsAsSender,
+  IDisputesAsPayer,
+  IDisputesAsSender
+} from '@/types/autoEscrowEscrowsTypes'
 
-export type TGetLastEscrows = ILastEscrows[]
+export type TGetLastEscrows = IOpensAsSender[]
 
 export interface IGetContratInfo {
   active: boolean
@@ -18,4 +19,12 @@ export interface IGetContratInfo {
   paidDeadline: number
   paidEscrowsLenght: number
   taxPercentage: number
+}
+
+export interface IGetEscrowsBySender {
+  disputesAsSender: IDisputesAsSender[]
+  disputesAsPayer: IDisputesAsPayer[]
+  opensAsSender: IOpensAsSender[]
+  paidsAsPayer: IPaidsAsPayer[]
+  paidsAsSender: IPaidsAsSender[]
 }

@@ -4,12 +4,12 @@ import { AppDispatch, AppThunk } from '../store'
 import { TGetLastEscrows } from '@/types/autoEscrowContractTypes'
 import { hexDateToNumber } from '@/utils/contract'
 
-export interface IContractInfoState {
+export interface ILastEscrowsState {
   escrows: TGetLastEscrows
   fetching: boolean
 }
 
-const initialState: IContractInfoState = {
+const initialState: ILastEscrowsState = {
   escrows: [],
   fetching: false
 }

@@ -30,7 +30,7 @@ const LastEscrowsPage: React.FC = () => {
 
   useEffect(() => {
     dispatch(asyncGetLastEscrows(contract))
-  }, [account, chainId])
+  }, [account, chainId, contract, dispatch])
 
   return (
     <Page title="Last Escrows" loading={fetching}>

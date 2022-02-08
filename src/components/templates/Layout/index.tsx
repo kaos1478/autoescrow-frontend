@@ -25,7 +25,7 @@ const Layout: React.FC = ({ children }) => {
 
   useEffect(() => {
     dispatch(asyncGetContractInfo(contract))
-  }, [account, chainId])
+  }, [account, chainId, contract, dispatch])
 
   return (
     <Styled.Container>
