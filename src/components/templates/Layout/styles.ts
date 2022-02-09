@@ -1,4 +1,8 @@
 import styled from 'styled-components'
+import facepaint from 'facepaint'
+import theme from '@/styles/theme'
+
+const mq = facepaint(theme.breakpoints)
 
 export const Container = styled.div`
   display: flex;
@@ -10,4 +14,8 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: calc(100vw - 13rem);
+
+  ${mq({
+    width: ['calc(100vw - 3rem)', 'calc(100vw - 3rem)', 'calc(100vw - 13rem)']
+  })}
 `
