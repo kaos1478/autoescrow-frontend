@@ -1,4 +1,8 @@
+import facepaint from 'facepaint'
 import styled from 'styled-components'
+import theme from '@/styles/theme'
+
+const mq = facepaint(theme.breakpoints)
 
 export const Container = styled.div`
   align-items: center;
@@ -8,4 +12,12 @@ export const Container = styled.div`
   justify-content: flex-end;
   padding: 0 2rem;
   width: calc(100vw - 13rem);
+
+  ${mq({
+    width: [
+      'calc(100vw - 3rem);',
+      'calc(100vw - 3rem);',
+      'calc(100vw - 13rem);'
+    ]
+  })}
 `
