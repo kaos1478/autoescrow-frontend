@@ -12,7 +12,7 @@ import * as Styled from './styles'
 
 // Types
 interface IEscrowListProps {
-  escrows: any[]
+  escrows: any[] | undefined
 }
 
 const EscrowList: React.FC<IEscrowListProps> = ({ escrows }) => {

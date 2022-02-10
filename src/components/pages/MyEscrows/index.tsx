@@ -12,6 +12,7 @@ import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
 import { asyncGetMyEscrows } from '@/redux/slicers/myEscrowsSlice'
 import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
 import { IGetEscrowsBySender } from '@/types/autoEscrowContractTypes'
+import Input from '@/components/atoms/Input'
 
 // Subcomponentes and style
 
@@ -24,12 +25,13 @@ const MyEscrows: React.FC = () => {
   const { account, chainId } = useWeb3React()
   const [statusFilter, setStatusFilter] =
     useState<keyof IGetEscrowsBySender>('opensAsSender')
+  const [inputText, setInputText] = useState<string>()
   const dispatch = useAppDispatch()
   const escrows = useAppSelector(
     (state: RootState) => state.myEscrows.escrows[statusFilter]
   )
   const fetching = useAppSelector(
-    (state: RootState) => state.lastEscrows.fetching
+    (state: RootState) => state.myEscrows.fetching
   )
   const escrowsStatus = [
     { value: 'opensAsSender', text: 'Opens As Sender' },
@@ -43,17 +45,27 @@ const MyEscrows: React.FC = () => {
     setStatusFilter(e.currentTarget.value)
   }
 
+  const findEscrows = (escrow: any): boolean =>
+    escrow.id.toString() === inputText
+
   useEffect(() => {
     dispatch(asyncGetMyEscrows(contract))
   }, [account, chainId, contract, dispatch])
 
-  const test = () => (
-    <Select handleChange={selectHandleChange} options={escrowsStatus} />
+  const addons = () => (
+    <div>
+      <Input
+        placeholder="Search ID"
+        onChange={e => setInputText(e.currentTarget.value)}
+        margin="0 0.5rem 0 0"
+      />
+      <Select handleChange={selectHandleChange} options={escrowsStatus} />
+    </div>
   )
 
   return (
-    <Page title="My Escrows" loading={fetching} addons={test}>
-      <EscrowList escrows={escrows} />
+    <Page title="My Escrows" loading={fetching} addons={addons}>
+      <EscrowList escrows={inputText ? escrows.filter(findEscrows) : escrows} />
     </Page>
   )
 }

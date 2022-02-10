@@ -9,6 +9,8 @@ import Typography from '@/components/atoms/Typography'
 import { ICardListItem } from '@/components/molecules/CardListItem'
 import CardList from '@/components/organisms/CardList'
 import * as Styled from './styles'
+import { Bars } from 'react-loader-spinner'
+import theme from '@/styles/theme'
 
 // Services
 
@@ -32,11 +34,22 @@ const Page: React.FC<IPageProps> = ({
       {cards && <CardList cards={cards} />}
       <Styled.Content>
         {title && (
-          <Styled.Title>
-            <Typography as="heading1">{title}</Typography>
-            {loading && <Typography as="heading1"> - Fetching</Typography>}
+          <Styled.Header>
+            <Styled.Title>
+              <Typography as="heading1" marginRight="1rem">
+                {title}
+              </Typography>
+              {loading && (
+                <Bars
+                  height={20}
+                  width={20}
+                  color={theme.colors.primary}
+                  ariaLabel="loading"
+                />
+              )}
+            </Styled.Title>
             {addons && addons()}
-          </Styled.Title>
+          </Styled.Header>
         )}
         {children}
       </Styled.Content>

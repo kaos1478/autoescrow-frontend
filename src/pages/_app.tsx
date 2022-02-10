@@ -9,9 +9,10 @@ import useLibrary from '@/hooks/useLibrary'
 import theme from '@/styles/theme'
 import Layout from '@/components/templates/Layout'
 import { store } from '@/redux/store'
+import { ModalCreateEscrow } from '@/components/organisms/Modals'
 
 import 'react-toastify/dist/ReactToastify.css'
-import { ModalCreateEscrow } from '@/components/organisms/Modals'
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
