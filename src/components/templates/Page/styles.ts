@@ -16,9 +16,16 @@ export const Content = styled.div`
   overflow-y: auto;
 `
 
+export const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid ${props => props.theme.colors.quaternary};
+`
+
 export const Title = styled.div`
   display: flex;
   align-items: center;
-  height: 4rem;
-  padding-left: 1.5rem;
 `

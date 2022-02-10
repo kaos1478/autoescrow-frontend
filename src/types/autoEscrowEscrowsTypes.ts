@@ -1,4 +1,5 @@
 export interface IDisputesAsSender {
+  id: number
   openDisputeBy: string
   payer: string
   sender: string
@@ -7,6 +8,7 @@ export interface IDisputesAsSender {
 }
 
 export interface IDisputesAsPayer {
+  id: number
   openDisputeBy: string
   payer: string
   sender: string
@@ -15,13 +17,14 @@ export interface IDisputesAsPayer {
 }
 
 export interface IOpensAsSender {
-  sender: string
   id: number
+  sender: string
   timeStamp: number
   weiAmount: number
 }
 
 export interface IPaidsAsPayer {
+  id: number
   payer: string
   sender: string
   timeStamp: number
@@ -29,6 +32,7 @@ export interface IPaidsAsPayer {
 }
 
 export interface IPaidsAsSender {
+  id: number
   payer: string
   sender: string
   timeStamp: number
