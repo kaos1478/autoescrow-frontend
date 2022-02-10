@@ -5,12 +5,11 @@
 // Componentes
 
 // Subcomponentes and style
+import LoaderIndicator from '@/components/atoms/LoaderIndicator'
 import Typography from '@/components/atoms/Typography'
 import { ICardListItem } from '@/components/molecules/CardListItem'
 import CardList from '@/components/organisms/CardList'
 import * as Styled from './styles'
-import { Bars } from 'react-loader-spinner'
-import theme from '@/styles/theme'
 
 // Services
 
@@ -39,14 +38,7 @@ const Page: React.FC<IPageProps> = ({
               <Typography as="heading1" marginRight="1rem">
                 {title}
               </Typography>
-              {loading && (
-                <Bars
-                  height={20}
-                  width={20}
-                  color={theme.colors.primary}
-                  ariaLabel="loading"
-                />
-              )}
+              {loading && <LoaderIndicator />}
             </Styled.Title>
             {addons && addons()}
           </Styled.Header>

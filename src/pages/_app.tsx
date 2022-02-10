@@ -12,7 +12,6 @@ import { store } from '@/redux/store'
 import { ModalCreateEscrow } from '@/components/organisms/Modals'
 
 import 'react-toastify/dist/ReactToastify.css'
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
