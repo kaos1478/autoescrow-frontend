@@ -10,6 +10,7 @@ import {
   IPaidsAsSender
 } from '@/types/autoEscrowEscrowsTypes'
 import { hexDateToNumber } from '@/utils/contract'
+import { setEscrowsStatus } from './escrowsStatusSlice'
 
 export interface IMyEscrowsState {
   escrows: IGetEscrowsBySender
@@ -53,7 +54,6 @@ export const asyncGetMyEscrows = (contract: Contract | null): AppThunk => {
     try {
       dispatch(setFetching(true))
       const resp = await contract?.getEscrowsBySender()
-      console.warn('resp: ', resp)
       dispatch(setFetching(false))
       resp?.opensAsSender?.forEach((openAsSender: any) => {
         opensAsSender.push({
@@ -97,6 +97,15 @@ export const asyncGetMyEscrows = (contract: Contract | null): AppThunk => {
           weiAmount: parseInt(disputeAsSender.weiAmount)
         })
       })
+      dispatch(
+        setEscrowsStatus([
+          { value: 'opensAsSender', text: 'Opens As Sender' },
+          { value: 'paidsAsPayer', text: 'Paids As Payer' },
+          { value: 'paidsAsSender', text: 'Paids As Sender' },
+          { value: 'disputesAsPayer', text: 'Disputes As Payer' },
+          { value: 'disputesAsSender', text: 'Disputes As Sender' }
+        ])
+      )
       dispatch(
         setMyEscrows({
           opensAsSender: opensAsSender,

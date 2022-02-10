@@ -4,14 +4,16 @@ import {
   contractInfoReducer,
   lastEscrowsReducer,
   modalsReducer,
-  myEscrowsReducer
+  myEscrowsReducer,
+  escrowsStatusReducer
 } from '@/redux/slicers'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     contractInfo: contractInfoReducer,
+    counter: counterReducer,
+    escrowsStatus: escrowsStatusReducer,
     lastEscrows: lastEscrowsReducer,
     modals: modalsReducer,
     myEscrows: myEscrowsReducer
