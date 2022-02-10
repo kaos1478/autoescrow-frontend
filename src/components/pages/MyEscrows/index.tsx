@@ -1,5 +1,5 @@
 // External libs
-import { ChangeEvent, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useWeb3React } from '@web3-react/core'
 
 // Assets
@@ -47,9 +47,12 @@ const MyEscrows: React.FC = () => {
     dispatch(asyncGetMyEscrows(contract))
   }, [account, chainId, contract, dispatch])
 
+  const test = () => (
+    <Select handleChange={selectHandleChange} options={escrowsStatus} />
+  )
+
   return (
-    <Page title="My Escrows" loading={fetching}>
-      <Select handleChange={selectHandleChange} options={escrowsStatus} />
+    <Page title="My Escrows" loading={fetching} addons={test}>
       <EscrowList escrows={escrows} />
     </Page>
   )
