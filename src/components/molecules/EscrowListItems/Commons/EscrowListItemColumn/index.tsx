@@ -5,7 +5,7 @@
 // Componentes
 
 // Subcomponentes and style
-import Typography from '../../../atoms/Typography'
+import Typography from '../../../../atoms/Typography'
 import * as Styled from './styles'
 
 // Services
@@ -17,14 +17,14 @@ import { Ellipse } from '@/utils/text'
 export interface IEscrowListItemColumnProps {
   title: string
   value: string | number
-  width: string
+  width?: string
   ellipse?: boolean
 }
 
 const EscrowListItemColumn: React.FC<IEscrowListItemColumnProps> = ({
   title,
   value,
-  width,
+  width = 'min-content',
   ellipse
 }) => {
   return (

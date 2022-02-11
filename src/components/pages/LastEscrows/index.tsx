@@ -34,7 +34,7 @@ const LastEscrowsPage: React.FC = () => {
 
   return (
     <Page title="Last Escrows" loading={fetching}>
-      <EscrowList escrows={escrows} />
+      <EscrowList escrows={escrows} status="open" />
     </Page>
   )
 }
