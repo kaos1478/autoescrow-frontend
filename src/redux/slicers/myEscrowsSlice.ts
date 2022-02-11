@@ -65,7 +65,7 @@ export const asyncGetMyEscrows = (contract: Contract | null): AppThunk => {
       })
       resp?.paidsAsPayer?.forEach((paidAsPayer: any) => {
         paidsAsPayer.push({
-          id: paidAsPayer.id,
+          id: parseInt(paidAsPayer.id),
           payer: paidAsPayer.payer,
           sender: paidAsPayer.sender,
           timeStamp: hexDateToNumber(paidAsPayer.timeStamp),
@@ -74,7 +74,7 @@ export const asyncGetMyEscrows = (contract: Contract | null): AppThunk => {
       })
       resp?.paidsAsSender?.forEach((paidAsSender: any) => {
         paidsAsSender.push({
-          id: paidAsSender.id,
+          id: parseInt(paidAsSender.id),
           payer: paidAsSender.payer,
           sender: paidAsSender.sender,
           timeStamp: hexDateToNumber(paidAsSender.timeStamp),
@@ -83,7 +83,7 @@ export const asyncGetMyEscrows = (contract: Contract | null): AppThunk => {
       })
       resp?.disputesAsPayer?.forEach((disputeAsPayer: any) => {
         disputesAsPayer.push({
-          id: disputeAsPayer.id,
+          id: parseInt(disputeAsPayer.id),
           openDisputeBy: disputeAsPayer.openDisputeBy,
           payer: disputeAsPayer.payer,
           sender: disputeAsPayer.sender,
@@ -93,7 +93,7 @@ export const asyncGetMyEscrows = (contract: Contract | null): AppThunk => {
       })
       resp?.disputesAsSender?.forEach((disputeAsSender: any) => {
         disputesAsSender.push({
-          id: disputeAsSender.id,
+          id: parseInt(disputeAsSender.id),
           openDisputeBy: disputeAsSender.openDisputeBy,
           payer: disputeAsSender.payer,
           sender: disputeAsSender.sender,
