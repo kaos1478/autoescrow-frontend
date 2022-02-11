@@ -1,7 +1,7 @@
 const breakpoints = [
   '@media(min-width: 420px)',
-  '@media(min-width: 920px)',
-  '@media(min-width: 1120px)'
+  '@media(min-width: 1340px)',
+  '@media(min-width: 1400px)'
 ]
 
 export type ThemeType = typeof theme

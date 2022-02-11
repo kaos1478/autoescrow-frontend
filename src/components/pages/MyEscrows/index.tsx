@@ -19,6 +19,16 @@ import Input from '@/components/atoms/Input'
 // Services
 
 // Types
+interface IEscrowStatus {
+  value:
+    | 'opensAsSender'
+    | 'paidsAsPayer'
+    | 'paidsAsSender'
+    | 'disputesAsPayer'
+    | 'disputesAsSender'
+  text: string
+  status: 'open' | 'paid' | 'dispute'
+}
 
 const MyEscrows: React.FC = () => {
   const contract = useAutoEscrowContract()
@@ -33,12 +43,12 @@ const MyEscrows: React.FC = () => {
   const fetching = useAppSelector(
     (state: RootState) => state.myEscrows.fetching
   )
-  const escrowsStatus = [
-    { value: 'opensAsSender', text: 'Opens As Sender' },
-    { value: 'paidsAsPayer', text: 'Paids As Payer' },
-    { value: 'paidsAsSender', text: 'Paids As Sender' },
-    { value: 'disputesAsPayer', text: 'Disputes As Payer' },
-    { value: 'disputesAsSender', text: 'Disputes As Sender' }
+  const escrowsStatus: IEscrowStatus[] = [
+    { value: 'opensAsSender', text: 'Opens As Sender', status: 'open' },
+    { value: 'paidsAsPayer', text: 'Paids As Payer', status: 'paid' },
+    { value: 'paidsAsSender', text: 'Paids As Sender', status: 'paid' },
+    { value: 'disputesAsPayer', text: 'Disputes As Payer', status: 'dispute' },
+    { value: 'disputesAsSender', text: 'Disputes As Sender', status: 'dispute' }
   ]
 
   const selectHandleChange = (e: any) => {
@@ -65,7 +75,13 @@ const MyEscrows: React.FC = () => {
 
   return (
     <Page title="My Escrows" loading={fetching} addons={addons}>
-      <EscrowList escrows={inputText ? escrows.filter(findEscrows) : escrows} />
+      <EscrowList
+        escrows={inputText ? escrows.filter(findEscrows) : escrows}
+        status={
+          escrowsStatus.find(status => status.value === statusFilter)?.status ||
+          'open'
+        }
+      />
     </Page>
   )
 }

@@ -2,7 +2,7 @@ import AUTOESCROW_ABI from '@/abis/AutoEscrow.json'
 import useContract from './useContract'
 
 export default function useAutoEscrowContract(
-  tokenAddress: string = '0xE2Eb5EC66d926A329FEfaF3BB298f8FbD1f45788'
+  tokenAddress: string = '0x3263164d5D55CBd4D5F5b9C4A0F2c59BF82ac119'
 ) {
   return useContract(tokenAddress, AUTOESCROW_ABI)
 }

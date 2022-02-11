@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+const Container = styled.div`
   align-items: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  margin: auto;
   overflow: hidden;
 `
+
+export default Container
