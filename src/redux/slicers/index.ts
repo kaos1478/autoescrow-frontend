@@ -4,3 +4,4 @@ export { default as escrowsStatusReducer } from '@/redux/slicers/escrowsStatusSl
 export { default as lastEscrowsReducer } from '@/redux/slicers/lastEscrowsSlice'
 export { default as modalsReducer } from '@/redux/slicers/modalsSlice'
 export { default as myEscrowsReducer } from '@/redux/slicers/myEscrowsSlice'
+export { default as findByIDReducer } from '@/redux/slicers/findByIDSlice'

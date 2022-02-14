@@ -33,6 +33,7 @@ interface IEscrowStatus {
 const MyEscrows: React.FC = () => {
   const contract = useAutoEscrowContract()
   const { account, chainId } = useWeb3React()
+  const [intervalID, setIntervalID] = useState<any>()
   const [statusFilter, setStatusFilter] =
     useState<keyof IGetEscrowsBySender>('opensAsSender')
   const [inputText, setInputText] = useState<string>()
@@ -59,8 +60,14 @@ const MyEscrows: React.FC = () => {
     escrow.id.toString() === inputText
 
   useEffect(() => {
+    clearInterval(intervalID)
     dispatch(asyncGetMyEscrows(contract))
-  }, [account, chainId, contract, dispatch])
+    setIntervalID(
+      setInterval(async () => {
+        contract && (await dispatch(asyncGetMyEscrows(contract)))
+      }, 20000)
+    )
+  }, [contract, account, chainId, dispatch])
 
   const addons = () => (
     <div>

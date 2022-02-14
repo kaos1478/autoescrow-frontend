@@ -1,11 +1,12 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
 import {
-  counterReducer,
   contractInfoReducer,
+  counterReducer,
+  escrowsStatusReducer,
+  findByIDReducer,
   lastEscrowsReducer,
   modalsReducer,
-  myEscrowsReducer,
-  escrowsStatusReducer
+  myEscrowsReducer
 } from '@/redux/slicers'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
@@ -14,6 +15,7 @@ export const store = configureStore({
     contractInfo: contractInfoReducer,
     counter: counterReducer,
     escrowsStatus: escrowsStatusReducer,
+    findByID: findByIDReducer,
     lastEscrows: lastEscrowsReducer,
     modals: modalsReducer,
     myEscrows: myEscrowsReducer
