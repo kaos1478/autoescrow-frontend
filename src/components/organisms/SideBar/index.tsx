@@ -38,7 +38,7 @@ const SideBar: React.FC = () => {
   return (
     <Styled.Container>
       <Typography as="heading1" marginTop="2rem" marginBottom="2rem">
-        SafeEscrow
+        SelfEscrow
       </Typography>
       <Typography as="heading1" marginTop="2rem" marginBottom="2rem">
         SE

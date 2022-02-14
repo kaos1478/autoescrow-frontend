@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta
             name="description"
-            content="Safe Escrow - The best way to create your escrow"
+            content="Self Escrow - The best way to create your escrow"
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
