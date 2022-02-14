@@ -48,7 +48,7 @@ const EscrowListItemDispute: React.FC<IEscrowListItemProps> = ({ escrow }) => {
         title="Payer"
         value={parsedEscrow.payer === account ? 'You' : parsedEscrow.payer}
       />
-      <EscrowListItemColumn width="10rem" title="Status" value="Paid" />
+      <EscrowListItemColumn width="10rem" title="Status" value="Dispute" />
       <EscrowListItemDisputeButtons
         id={parsedEscrow.id}
         sender={parsedEscrow.sender}

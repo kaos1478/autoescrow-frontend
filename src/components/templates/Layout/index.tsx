@@ -15,6 +15,7 @@ import * as Styled from './styles'
 import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
 import { useAppDispatch } from '@/redux/store'
 import { asyncGetContractInfo } from '@/redux/slicers/contractInfoSlice'
+import useInjectedConnector from '@/hooks/useInjectedConnector'
 
 // Types
 
@@ -23,7 +24,41 @@ const Layout: React.FC = ({ children }) => {
   const { account, chainId } = useWeb3React()
   const dispatch = useAppDispatch()
 
+  const switchNetworkMumbai = async () => {
+    const provider = await useInjectedConnector.getProvider()
+    try {
+      await provider.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: '0x13881' }]
+      })
+    } catch (error: any) {
+      if (error.code === 4902) {
+        try {
+          await provider.request({
+            method: 'wallet_addEthereumChain',
+            params: [
+              {
+                chainId: '0x13881',
+                chainName: 'Mumbai',
+                rpcUrls: ['https://rpc-mumbai.matic.today'],
+                nativeCurrency: {
+                  name: 'Matic',
+                  symbol: 'Matic',
+                  decimals: 18
+                },
+                blockExplorerUrls: ['https://explorer-mumbai.maticvigil.com']
+              }
+            ]
+          })
+        } catch (error: any) {
+          alert(error.message)
+        }
+      }
+    }
+  }
+
   useEffect(() => {
+    switchNetworkMumbai()
     dispatch(asyncGetContractInfo(contract))
   }, [account, chainId, contract, dispatch])
 

@@ -1,5 +1,5 @@
 // External libs
-import { useEffect } from 'react'
+import { useEffect, memo, useState } from 'react'
 import { useWeb3React } from '@web3-react/core'
 
 // Assets
@@ -19,6 +19,7 @@ import { asyncGetLastEscrows } from '@/redux/slicers/lastEscrowsSlice'
 
 const LastEscrowsPage: React.FC = () => {
   const contract = useAutoEscrowContract()
+  const [intervalID, setIntervalID] = useState<any>()
   const { account, chainId } = useWeb3React()
   const dispatch = useAppDispatch()
   const escrows = useAppSelector(
@@ -29,8 +30,14 @@ const LastEscrowsPage: React.FC = () => {
   )
 
   useEffect(() => {
+    clearInterval(intervalID)
     dispatch(asyncGetLastEscrows(contract))
-  }, [account, chainId, contract, dispatch])
+    setIntervalID(
+      setInterval(async () => {
+        contract && (await dispatch(asyncGetLastEscrows(contract)))
+      }, 20000)
+    )
+  }, [contract, account, chainId, dispatch])
 
   return (
     <Page title="Last Escrows" loading={fetching}>
@@ -39,4 +46,4 @@ const LastEscrowsPage: React.FC = () => {
   )
 }
 
-export default LastEscrowsPage
+export default memo(LastEscrowsPage)

@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify'
 
-type TUseContractMiddleware = () => any
+type TUseContractMiddleware = (data: any) => any
 
 export const useAsyncValidator = () =>
   async function useAsyncValidator(

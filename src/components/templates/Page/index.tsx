@@ -9,6 +9,8 @@ import LoaderIndicator from '@/components/atoms/LoaderIndicator'
 import Typography from '@/components/atoms/Typography'
 import { ICardListItem } from '@/components/molecules/CardListItem'
 import CardList from '@/components/organisms/CardList'
+import { useWeb3React } from '@web3-react/core'
+import { useMemo } from 'react'
 import * as Styled from './styles'
 
 // Services
@@ -28,6 +30,20 @@ const Page: React.FC<IPageProps> = ({
   addons,
   children
 }) => {
+  const { account } = useWeb3React()
+
+  const getContent = useMemo(() => {
+    if (account) {
+      return children
+    } else {
+      return (
+        <Typography as="heading2" align="center" marginTop="2rem">
+          Connect your walllet to load!
+        </Typography>
+      )
+    }
+  }, [account, children])
+
   return (
     <Styled.Container>
       {cards && <CardList cards={cards} />}
@@ -43,7 +59,7 @@ const Page: React.FC<IPageProps> = ({
             {addons && addons()}
           </Styled.Header>
         )}
-        {children}
+        {getContent}
       </Styled.Content>
     </Styled.Container>
   )

@@ -1,4 +1,5 @@
 // External libs
+import { memo } from 'react'
 
 // Assets
 
@@ -37,4 +38,4 @@ const EscrowList: React.FC<IEscrowListProps> = ({ escrows, status }) => {
   )
 }
 
-export default EscrowList
+export default memo(EscrowList)
