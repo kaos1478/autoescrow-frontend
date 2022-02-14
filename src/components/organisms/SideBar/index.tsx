@@ -38,10 +38,10 @@ const SideBar: React.FC = () => {
   return (
     <Styled.Container>
       <Typography as="heading1" marginTop="2rem" marginBottom="2rem">
-        AutoEscrow
+        SafeEscrow
       </Typography>
       <Typography as="heading1" marginTop="2rem" marginBottom="2rem">
-        AE
+        SE
       </Typography>
       <Button color="default" marginBottom="2rem" onClick={handleOnClick}>
         New Escrow
