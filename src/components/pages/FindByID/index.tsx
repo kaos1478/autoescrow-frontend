@@ -4,6 +4,7 @@
 
 // Componentes
 import Input from '@/components/atoms/Input'
+import Typography from '@/components/atoms/Typography'
 import EscrowList from '@/components/organisms/EscrowList'
 import Page from '@/components/templates/Page'
 import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
@@ -21,7 +22,9 @@ const FindByID: React.FC = () => {
   const contract = useAutoEscrowContract()
   const [timeoutID, setTimeoutID] = useState<any>()
   const dispatch = useAppDispatch()
-  const escrows = useAppSelector((state: RootState) => state.findByID.escrows)
+  const { escrows, error } = useAppSelector(
+    (state: RootState) => state.findByID
+  )
 
   const handleOnChange = (e: string) => {
     clearTimeout(timeoutID)
@@ -34,8 +37,8 @@ const FindByID: React.FC = () => {
   }
   const addons = () => (
     <Input
-      placeholder="Search ID"
       onChange={e => handleOnChange(e.currentTarget.value)}
+      placeholder="Search ID"
       type="number"
     />
   )
@@ -47,6 +50,11 @@ const FindByID: React.FC = () => {
       {escrows.disputes && (
         <EscrowList escrows={escrows.disputes} status="dispute" />
       )}
+      {
+        <Typography as="heading2" align="center" marginTop="2rem">
+          {error}
+        </Typography>
+      }
     </Page>
   )
 }

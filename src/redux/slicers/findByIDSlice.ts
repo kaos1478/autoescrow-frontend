@@ -10,11 +10,13 @@ import {
 import { hexDateToNumber } from '@/utils/contract'
 
 export interface IGetEscrowByIDState {
+  error: string
   escrows: IGetEscrowById
   fetching: boolean
 }
 
 const initialState: IGetEscrowByIDState = {
+  error: '',
   escrows: {
     opens: [],
     paids: [],
@@ -32,12 +34,15 @@ export const findBydIDSlice = createSlice({
     },
     setFetching: (state, action: PayloadAction<boolean>) => {
       state.fetching = action.payload
+    },
+    setError: (state, action: PayloadAction<string>) => {
+      state.error = action.payload
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { setFindByID, setFetching } = findBydIDSlice.actions
+export const { setFindByID, setFetching, setError } = findBydIDSlice.actions
 
 export const asyncGetEscrowByID = (
   contract: Contract | null,
@@ -49,6 +54,7 @@ export const asyncGetEscrowByID = (
     const disputes: IDisputeEscrow[] = []
     try {
       dispatch(setFetching(true))
+      dispatch(setError(''))
       const resp = await contract?.getEscrowById(id)
       dispatch(setFetching(false))
       resp?.opens?.forEach((openAsSender: any) => {
@@ -85,9 +91,9 @@ export const asyncGetEscrowByID = (
           disputes: disputes
         })
       )
-    } catch (e) {
+    } catch (e: any) {
       dispatch(setFetching(false))
-      console.error(e)
+      dispatch(setError(e.data?.message || e.message))
     }
   }
 }
