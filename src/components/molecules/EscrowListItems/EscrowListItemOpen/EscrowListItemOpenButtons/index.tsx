@@ -41,7 +41,7 @@ const EscrowListItemOpenButtons: React.FC<IEscrowListItemOpenButtonsProps> = ({
   const deleteEscrow = async () => {
     asyncValidator(
       contract?.deleteEscrow(id),
-      'Payment submitted to the blockchain!',
+      'Delete submitted to the blockchain!',
       'Waiting for confirmation!'
     )
   }
