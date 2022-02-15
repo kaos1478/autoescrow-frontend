@@ -23,10 +23,36 @@ const stylesByStatus = {
     }
   `,
   paid: css`
-    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 2fr;
+    ${mq({
+      'grid-template-columns': [
+        '1fr',
+        '1fr 1fr 2fr',
+        '1fr 1fr 2fr 1fr 1fr 2fr'
+      ],
+      'grid-template-rows': ['1fr 1fr 1fr 1fr 1fr 1fr', '1fr 1fr', '1fr']
+    })}
+
+    & > div {
+      ${mq({
+        margin: ['0.5rem auto', '0.5rem auto', 'auto']
+      })}
+    }
   `,
   dispute: css`
-    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 2fr;
+    ${mq({
+      'grid-template-columns': [
+        '1fr',
+        '1fr 1fr 2fr',
+        '1fr 1fr 2fr 1fr 1fr 2fr'
+      ],
+      'grid-template-rows': ['1fr 1fr 1fr 1fr 1fr 1fr', '1fr 1fr', '1fr']
+    })}
+
+    & > div {
+      ${mq({
+        margin: ['0.5rem auto', '0.5rem auto', 'auto']
+      })}
+    }
   `
 }
 

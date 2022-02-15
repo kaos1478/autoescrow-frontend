@@ -9,7 +9,9 @@ export const Container = styled.div`
   background-color: ${props => props.theme.colors.background.secondary};
   display: flex;
   height: 3.8rem;
-  justify-content: flex-end;
+  ${mq({
+    'justify-content': ['space-between', 'space-between', 'flex-end']
+  })}
   padding: 0 2rem;
   width: calc(100vw - 13rem);
 
@@ -19,5 +21,15 @@ export const Container = styled.div`
       'calc(100vw - 3rem);',
       'calc(100vw - 13rem);'
     ]
+  })}
+`
+
+export const RightContent = styled.div`
+  display: flex;
+`
+
+export const LeftContent = styled.div`
+  ${mq({
+    display: ['flex', 'flex', 'none']
   })}
 `

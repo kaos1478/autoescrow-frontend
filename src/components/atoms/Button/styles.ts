@@ -52,7 +52,10 @@ export const Container = styled.button<IButtonProps>`
   border: none;
   font-size: ${props => props.theme.sizes.font.small};
   height: ${props => props.theme.sizes.button.height};
-  min-width: ${props => props.theme.sizes.button.minWidth};
+  ${props =>
+    !props.withoutMinWidth &&
+    `min-width: ${props.theme.sizes.button.minWidth};`}
+  ${props => props.padding && `padding: ${props.padding};`}
   outline: none !important;
   transition: all 0.5s;
 

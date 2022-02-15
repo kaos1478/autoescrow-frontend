@@ -37,3 +37,16 @@ export interface IGetEscrowById {
   paids: IPaidEscrow[]
   disputes: IDisputeEscrow[]
 }
+
+export interface IGetContractInfo {
+  currentDisputeAsSender: number
+  currentOpenAsSender: number
+  currentPaidAsSender: number
+  totalCreated: number
+  totalDisputeAsSender: number
+  totalPaidAsSender: number
+  currentDisputeAsPayer: number
+  currentPaidAsPayer: number
+  totalDisputeAsPayer: number
+  totalPaidAsPayer: number
+}
