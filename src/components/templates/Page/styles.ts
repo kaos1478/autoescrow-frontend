@@ -24,6 +24,7 @@ export const Header = styled.div`
   border-bottom: 1px solid ${props => props.theme.colors.quaternary};
   display: flex;
   flex-wrap: wrap;
+  min-height: 4.5rem;
   justify-content: space-between;
   padding: 1rem;
 `
