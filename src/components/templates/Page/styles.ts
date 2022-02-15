@@ -20,12 +20,12 @@ export const Content = styled.div`
 `
 
 export const Header = styled.div`
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 4rem;
-  padding: 0 1.5rem;
   border-bottom: 1px solid ${props => props.theme.colors.quaternary};
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
 `
 
 export const Title = styled.div`

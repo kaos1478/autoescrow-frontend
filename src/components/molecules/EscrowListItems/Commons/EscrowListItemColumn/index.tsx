@@ -12,6 +12,8 @@ import * as Styled from './styles'
 
 // Utils
 import { Ellipse } from '@/utils/text'
+import Link from 'next/link'
+import { useWeb3React } from '@web3-react/core'
 
 // Types
 export interface IEscrowListItemColumnProps {
@@ -27,7 +29,9 @@ const EscrowListItemColumn: React.FC<IEscrowListItemColumnProps> = ({
   width = 'min-content',
   ellipse
 }) => {
-  return (
+  const { account } = useWeb3React()
+
+  const getContent = () => (
     <Styled.Container width={width}>
       <Typography as="body1">{title}</Typography>
       <Typography as="body2">
@@ -35,6 +39,16 @@ const EscrowListItemColumn: React.FC<IEscrowListItemColumnProps> = ({
       </Typography>
     </Styled.Container>
   )
+
+  if (title === 'Owner' || title === 'Sender') {
+    return (
+      <Link passHref href={`/Profile/${value === 'You' ? account : value}`}>
+        {getContent()}
+      </Link>
+    )
+  } else {
+    return getContent()
+  }
 }
 
 export default EscrowListItemColumn

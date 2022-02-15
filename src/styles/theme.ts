@@ -1,5 +1,5 @@
 const breakpoints = [
-  '@media(min-width: 420px)',
+  '@media(min-width: 600px)',
   '@media(min-width: 1340px)',
   '@media(min-width: 1400px)'
 ]

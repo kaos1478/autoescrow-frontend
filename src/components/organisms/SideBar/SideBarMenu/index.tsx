@@ -33,7 +33,7 @@ const SideBarMenu: React.FC = () => {
     },
     {
       icon: UserSVG,
-      link: '/MyProfile',
+      link: '/Profile',
       title: 'My Profile'
     },
     {
