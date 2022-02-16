@@ -5,28 +5,63 @@
 // Componentes
 
 // Subcomponentes and style
-import InfoListItem, {
-  IInfoListItemProps
-} from '@/components/molecules/InfoListItem'
+import InfoListItem from '@/components/molecules/InfoListItem'
 import * as Styled from './styles'
 
 // Services
+import { RootState, useAppSelector } from '@/redux/store'
+import InfoListGroup from './InfoListGroup'
 
 // Types
-interface IInfoList {
-  infoList: IInfoListItemProps[]
-}
 
-const InfoList: React.FC<IInfoList> = ({ infoList }) => {
+const InfoList: React.FC = () => {
+  const { info } = useAppSelector((state: RootState) => state.myProfile)
+
   return (
     <Styled.Container>
-      {infoList.map(info => (
+      <InfoListGroup title="As Payer">
         <InfoListItem
-          key={info.title}
-          title={info.title}
-          description={info.description}
+          title="Current disputes: "
+          description={info.currentDisputeAsPayer}
         />
-      ))}
+        <InfoListItem
+          title="Current Paid: "
+          description={info.currentPaidAsPayer}
+        />
+        <InfoListItem
+          title="Total Paid: "
+          description={info.totalPaidAsPayer}
+        />
+      </InfoListGroup>
+      <InfoListGroup title="As Sender">
+        <InfoListItem
+          title="Current disputes: "
+          description={info.currentDisputeAsSender}
+        />
+        <InfoListItem
+          title="Current open: "
+          description={info.currentOpenAsSender}
+        />
+        <InfoListItem
+          title="Current Paid: "
+          description={info.currentPaidAsSender}
+        />
+        <InfoListItem
+          title="Total Disputes: "
+          description={info.totalDisputeAsPayer}
+        />
+        <InfoListItem
+          title="Total disputes: "
+          description={info.totalDisputeAsSender}
+        />
+        <InfoListItem
+          title="Total Paid: "
+          description={info.totalPaidAsSender}
+        />
+      </InfoListGroup>
+      <InfoListGroup title="Global">
+        <InfoListItem title="Total Created: " description={info.totalCreated} />
+      </InfoListGroup>
     </Styled.Container>
   )
 }
