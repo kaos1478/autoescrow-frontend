@@ -1,6 +1,7 @@
 // External libs
 import { IPaidsAsPayer, IPaidsAsSender } from '@/types/autoEscrowEscrowsTypes'
 import { toEther } from '@/utils/contract'
+import { Ellipse } from '@/utils/text'
 import { useWeb3React } from '@web3-react/core'
 
 // Assets
@@ -38,15 +39,19 @@ const EscrowListItemDispute: React.FC<IEscrowListItemProps> = ({ escrow }) => {
         value={parsedEscrow.ammount}
       />
       <EscrowListItemColumn
-        width="15rem"
+        width={parsedEscrow.sender === account ? '5rem' : '15rem'}
         title="Owner"
-        value={parsedEscrow.sender === account ? 'You' : parsedEscrow.sender}
+        value={
+          parsedEscrow.sender === account ? 'You' : Ellipse(parsedEscrow.sender)
+        }
         ellipse
       />
       <EscrowListItemColumn
-        width="7rem"
+        width={parsedEscrow.payer === account ? '5rem' : '15rem'}
         title="Payer"
-        value={parsedEscrow.payer === account ? 'You' : parsedEscrow.payer}
+        value={
+          parsedEscrow.payer === account ? 'You' : Ellipse(parsedEscrow.payer)
+        }
       />
       <EscrowListItemColumn width="10rem" title="Status" value="Dispute" />
       <EscrowListItemDisputeButtons
