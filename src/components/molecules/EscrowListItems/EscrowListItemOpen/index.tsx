@@ -45,7 +45,7 @@ const EscrowListItemOpen: React.FC<IEscrowListItemProps> = ({ escrow }) => {
         }
         ellipse
       />
-      <EscrowListItemColumn width="5rem" title="Payer" value="None" />
+      <EscrowListItemColumn width="6rem" title="Payer" value="None" />
       <EscrowListItemColumn width="10rem" title="Status" value={'Open'} />
       <EscrowListItemOpenButtons
         id={parsedEscrow.id}
