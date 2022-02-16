@@ -3,10 +3,9 @@
 // Assets
 
 // Componentes
+import Typography from '@/components/atoms/Typography'
 
 // Subcomponentes and style
-import Typography from '@/components/atoms/Typography'
-import { useState } from 'react'
 import * as Styled from './styles'
 
 // Services
@@ -14,20 +13,18 @@ import * as Styled from './styles'
 // Types
 export interface IInfoListItemProps {
   title: string
-  description: string
+  description: string | number
 }
 
 const InfoListItem: React.FC<IInfoListItemProps> = ({ title, description }) => {
-  const [toggle, setToggle] = useState<boolean>(false)
-
   return (
     <Styled.Container>
-      <Styled.Header onClick={() => setToggle(!toggle)}>
-        <Typography as="heading2">{title}</Typography>
-      </Styled.Header>
-      <Styled.Body toggle={toggle}>
-        <Typography as="body3">{description}</Typography>
-      </Styled.Body>
+      <Styled.Description>
+        <Typography as="body1">{title}</Typography>
+      </Styled.Description>
+      <Styled.Value>
+        <Typography as="body1">{description}</Typography>
+      </Styled.Value>
     </Styled.Container>
   )
 }

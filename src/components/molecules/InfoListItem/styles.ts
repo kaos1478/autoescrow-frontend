@@ -1,13 +1,18 @@
 import styled from 'styled-components'
 
-export const Container = styled.li``
+export const Container = styled.li`
+  display: flex;
+  align-items: flex-end;
 
-export const Header = styled.div`
-  padding: 1.5rem;
+  &:not(:first-child) {
+    margin-top: 0.3rem;
+  }
 `
 
-export const Body = styled.div<{ toggle: boolean }>`
+export const Description = styled.div``
+
+export const Value = styled.div`
   transition: all 0.5s;
-  height: ${props => (props.toggle ? 'fit-content' : '0px')};
   overflow: hidden;
+  margin-left: 0.5rem;
 `
