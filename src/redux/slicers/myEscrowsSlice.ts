@@ -1,16 +1,16 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Contract } from 'ethers'
 import { AppDispatch, AppThunk } from '../store'
+import { Contract } from 'ethers'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { hexDateToNumber } from '@/utils/contract'
 import { IGetEscrowsBySender } from '@/types/autoEscrowContractTypes'
+import { setEscrowsStatus } from './escrowsStatusSlice'
 import {
-  IOpensAsSender,
   IDisputesAsPayer,
   IDisputesAsSender,
+  IOpensAsSender,
   IPaidsAsPayer,
   IPaidsAsSender
 } from '@/types/autoEscrowEscrowsTypes'
-import { hexDateToNumber } from '@/utils/contract'
-import { setEscrowsStatus } from './escrowsStatusSlice'
 
 export interface IMyEscrowsState {
   escrows: IGetEscrowsBySender
@@ -29,8 +29,8 @@ const initialState: IMyEscrowsState = {
 }
 
 export const myEscrowsSlice = createSlice({
-  name: 'myEscrows',
   initialState,
+  name: 'myEscrows',
   reducers: {
     setMyEscrows: (state, action: PayloadAction<IGetEscrowsBySender>) => {
       state.escrows = action.payload

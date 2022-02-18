@@ -1,18 +1,17 @@
 // External libs
-
-import Typography from '@/components/atoms/Typography'
-import Page from '@/components/templates/Page'
-import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
-import { toEther } from '@/utils/contract'
 import { useEffect, useState } from 'react'
 
 // Assets
 
 // Componentes
+import Page from '@/components/templates/Page'
+import Typography from '@/components/atoms/Typography'
 
 // Subcomponentes and style
 
 // Services
+import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
+import { toEther } from '@/utils/contract'
 
 // Types
 

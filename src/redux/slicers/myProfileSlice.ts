@@ -1,27 +1,27 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Contract } from 'ethers'
 import { AppDispatch, AppThunk } from '../store'
+import { Contract } from 'ethers'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IGetContractInfo } from '@/types/autoEscrowContractTypes'
 
 export interface IGetEscrowByIDState {
   error: string
-  info: IGetContractInfo
   fetching: boolean
+  info: IGetContractInfo
 }
 
 const initialState: IGetEscrowByIDState = {
   error: '',
   info: {
+    currentDisputeAsPayer: 0,
     currentDisputeAsSender: 0,
     currentOpenAsSender: 0,
+    currentPaidAsPayer: 0,
     currentPaidAsSender: 0,
     totalCreated: 0,
-    totalDisputeAsSender: 0,
-    totalPaidAsSender: 0,
-    currentDisputeAsPayer: 0,
-    currentPaidAsPayer: 0,
     totalDisputeAsPayer: 0,
-    totalPaidAsPayer: 0
+    totalDisputeAsSender: 0,
+    totalPaidAsPayer: 0,
+    totalPaidAsSender: 0
   },
   fetching: false
 }
@@ -46,8 +46,8 @@ export const myProfileSlice = createSlice({
 export const { setMyProfile, setFetching, setError } = myProfileSlice.actions
 
 export const asyncGetProfile = (
-  contract: Contract | null,
-  address: string
+  address: string,
+  contract: Contract | null
 ): AppThunk => {
   return async (dispatch: AppDispatch) => {
     let info: IGetContractInfo = initialState.info
@@ -55,28 +55,28 @@ export const asyncGetProfile = (
       dispatch(setFetching(true))
       dispatch(setError(''))
       const {
+        currentDisputeAsPayer,
         currentDisputeAsSender,
         currentOpenAsSender,
+        currentPaidAsPayer,
         currentPaidAsSender,
         totalCreated,
-        totalDisputeAsSender,
-        totalPaidAsSender,
-        currentDisputeAsPayer,
-        currentPaidAsPayer,
         totalDisputeAsPayer,
-        totalPaidAsPayer
+        totalDisputeAsSender,
+        totalPaidAsPayer,
+        totalPaidAsSender
       } = await contract?.getInfoByAddress(address)
       info = {
+        currentDisputeAsPayer: parseInt(currentDisputeAsPayer),
         currentDisputeAsSender: parseInt(currentDisputeAsSender),
         currentOpenAsSender: parseInt(currentOpenAsSender),
+        currentPaidAsPayer: parseInt(currentPaidAsPayer),
         currentPaidAsSender: parseInt(currentPaidAsSender),
         totalCreated: parseInt(totalCreated),
-        totalDisputeAsSender: parseInt(totalDisputeAsSender),
-        totalPaidAsSender: parseInt(totalPaidAsSender),
-        currentDisputeAsPayer: parseInt(currentDisputeAsPayer),
-        currentPaidAsPayer: parseInt(currentPaidAsPayer),
         totalDisputeAsPayer: parseInt(totalDisputeAsPayer),
-        totalPaidAsPayer: parseInt(totalPaidAsPayer)
+        totalDisputeAsSender: parseInt(totalDisputeAsSender),
+        totalPaidAsPayer: parseInt(totalPaidAsPayer),
+        totalPaidAsSender: parseInt(totalPaidAsSender)
       }
       dispatch(setFetching(false))
       dispatch(setMyProfile(info))

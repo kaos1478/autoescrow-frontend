@@ -29,8 +29,8 @@ export default createGlobalStyle<{ theme: ThemeType }>`
 
   [disabled] {
     cursor: not-allowed;
-    opacity: 0.5;
     filter: blur(1px);
+    opacity: 0.5;
   }
 
   [disabled]:hover {

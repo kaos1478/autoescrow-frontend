@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const Container = styled.ul`
-  list-style: none;
   display: flex;
-  justify-content: flex-start;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
 
   & > li {
     margin-bottom: 1rem;

@@ -1,8 +1,8 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Contract } from 'ethers'
 import { AppDispatch, AppThunk } from '../store'
-import { TGetLastEscrows } from '@/types/autoEscrowContractTypes'
+import { Contract } from 'ethers'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { hexDateToNumber } from '@/utils/contract'
+import { TGetLastEscrows } from '@/types/autoEscrowContractTypes'
 
 export interface ILastEscrowsState {
   escrows: TGetLastEscrows
@@ -15,8 +15,8 @@ const initialState: ILastEscrowsState = {
 }
 
 export const lastEscrowsSlice = createSlice({
-  name: 'lastEscrows',
   initialState,
+  name: 'lastEscrows',
   reducers: {
     setLastEscrows: (state, action: PayloadAction<TGetLastEscrows>) => {
       state.escrows = action.payload

@@ -1,10 +1,10 @@
 // External libs
 import { FunctionComponent } from 'react'
-import Typography from '../../atoms/Typography'
 
 // Assets
 
 // Componentes
+import Typography from '../../atoms/Typography'
 
 // Subcomponentes and style
 import * as Styled from './styles'

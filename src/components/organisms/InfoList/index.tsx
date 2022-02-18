@@ -3,14 +3,14 @@
 // Assets
 
 // Componentes
+import InfoListItem from '@/components/molecules/InfoListItem'
 
 // Subcomponentes and style
-import InfoListItem from '@/components/molecules/InfoListItem'
 import * as Styled from './styles'
+import InfoListGroup from './InfoListGroup'
 
 // Services
 import { RootState, useAppSelector } from '@/redux/store'
-import InfoListGroup from './InfoListGroup'
 
 // Types
 
@@ -21,42 +21,42 @@ const InfoList: React.FC = () => {
     <Styled.Container>
       <InfoListGroup title="As Payer">
         <InfoListItem
-          title="Current disputes: "
           description={info.currentDisputeAsPayer}
+          title="Current disputes: "
         />
         <InfoListItem
-          title="Current Paid: "
           description={info.currentPaidAsPayer}
+          title="Current Paid: "
         />
         <InfoListItem
-          title="Total Paid: "
           description={info.totalPaidAsPayer}
+          title="Total Paid: "
         />
       </InfoListGroup>
       <InfoListGroup title="As Sender">
         <InfoListItem
-          title="Current disputes: "
           description={info.currentDisputeAsSender}
+          title="Current disputes: "
         />
         <InfoListItem
-          title="Current open: "
           description={info.currentOpenAsSender}
+          title="Current open: "
         />
         <InfoListItem
-          title="Current Paid: "
           description={info.currentPaidAsSender}
+          title="Current Paid: "
         />
         <InfoListItem
-          title="Total Disputes: "
           description={info.totalDisputeAsPayer}
+          title="Total Disputes: "
         />
         <InfoListItem
-          title="Total disputes: "
           description={info.totalDisputeAsSender}
+          title="Total disputes: "
         />
         <InfoListItem
-          title="Total Paid: "
           description={info.totalPaidAsSender}
+          title="Total Paid: "
         />
       </InfoListGroup>
       <InfoListGroup title="Global">

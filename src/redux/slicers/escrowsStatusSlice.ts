@@ -1,20 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type escrowsStatus = {
-  value: string
   text: string
+  value: string
 }
 
 const initialState: escrowsStatus[] = [
   {
-    value: '',
-    text: ''
+    text: '',
+    value: ''
   }
 ]
 
 export const escrowsStatusSlice = createSlice({
-  name: 'escrowsStatus',
   initialState,
+  name: 'escrowsStatus',
   reducers: {
     setEscrowsStatus: (state, action: PayloadAction<escrowsStatus[]>) => {
       console.log('action.payload: ', action.payload)

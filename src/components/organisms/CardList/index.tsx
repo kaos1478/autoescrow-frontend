@@ -3,11 +3,11 @@
 // Assets
 
 // Componentes
-
-// Subcomponentes and style
 import CardListItem, {
   ICardListItem
 } from '@/components/molecules/CardListItem'
+
+// Subcomponentes and style
 import * as Styled from './styles'
 
 // Services

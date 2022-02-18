@@ -1,14 +1,14 @@
 // External libs
+import { Ellipse } from '@/utils/text'
 import { IOpensAsSender } from '@/types/autoEscrowEscrowsTypes'
 import { toEther } from '@/utils/contract'
-import { Ellipse } from '@/utils/text'
 import { useWeb3React } from '@web3-react/core'
 
 // Assets
 
 // Componentes
-import { EscrowListItemColumn, EscrowListItemFrame } from '../Commons'
 import EscrowListItemOpenButtons from './EscrowListItemOpenButtons'
+import { EscrowListItemColumn, EscrowListItemFrame } from '../Commons'
 
 // Subcomponentes and style
 
@@ -23,9 +23,9 @@ const EscrowListItemOpen: React.FC<IEscrowListItemProps> = ({ escrow }) => {
   const { account } = useWeb3React()
 
   const parsedEscrow = {
-    sender: escrow.sender,
-    id: escrow.id,
     ammount: toEther(escrow.weiAmount),
+    id: escrow.id,
+    sender: escrow.sender,
     timeStamp: new Date(escrow.timeStamp * 1000)
   }
 
@@ -33,23 +33,23 @@ const EscrowListItemOpen: React.FC<IEscrowListItemProps> = ({ escrow }) => {
     <EscrowListItemFrame status="open">
       <EscrowListItemColumn width="5rem" title="ID" value={parsedEscrow.id} />
       <EscrowListItemColumn
-        width="9rem"
         title="Ammount"
         value={parsedEscrow.ammount}
+        width="9rem"
       />
       <EscrowListItemColumn
-        width={parsedEscrow.sender === account ? '5rem' : '15rem'}
+        ellipse
         title="Owner"
         value={
           parsedEscrow.sender === account ? 'You' : Ellipse(parsedEscrow.sender)
         }
-        ellipse
+        width={parsedEscrow.sender === account ? '5rem' : '15rem'}
       />
       <EscrowListItemColumn width="6rem" title="Payer" value="None" />
       <EscrowListItemColumn width="10rem" title="Status" value={'Open'} />
       <EscrowListItemOpenButtons
-        id={parsedEscrow.id}
         amount={parsedEscrow.ammount}
+        id={parsedEscrow.id}
         sender={parsedEscrow.sender}
       />
     </EscrowListItemFrame>

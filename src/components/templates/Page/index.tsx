@@ -1,33 +1,33 @@
 // External libs
+import { useWeb3React } from '@web3-react/core'
+import { useMemo } from 'react'
 
 // Assets
 
 // Componentes
-
-// Subcomponentes and style
 import LoaderIndicator from '@/components/atoms/LoaderIndicator'
 import Typography from '@/components/atoms/Typography'
 import { ICardListItem } from '@/components/molecules/CardListItem'
 import CardList from '@/components/organisms/CardList'
-import { useWeb3React } from '@web3-react/core'
-import { useMemo } from 'react'
+
+// Subcomponentes and style
 import * as Styled from './styles'
 
 // Services
 
 // Types
 interface IPageProps {
-  cards?: ICardListItem[]
-  title?: string
-  loading?: boolean
   addons?: () => void
+  cards?: ICardListItem[]
+  loading?: boolean
+  title?: string
 }
 
 const Page: React.FC<IPageProps> = ({
-  cards,
-  title,
-  loading,
   addons,
+  cards,
+  loading,
+  title,
   children
 }) => {
   const { account } = useWeb3React()

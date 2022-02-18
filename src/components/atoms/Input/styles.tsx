@@ -24,8 +24,8 @@ export const Container = styled.input<IContainerProps>`
   transition: all 0.5s;
 
   &::placeholder {
-    font-size: ${props => props.theme.sizes.font.medium};
     color: ${props => props.theme.colors.input.placeHolder};
+    font-size: ${props => props.theme.sizes.font.medium};
   }
 
   ${props => props.active && activeStyle};

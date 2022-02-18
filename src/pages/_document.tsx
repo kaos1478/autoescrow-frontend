@@ -40,8 +40,8 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <meta charSet="utf-8" />
           <meta
-            name="description"
             content="Self Escrow - The best way to create your escrow"
+            name="description"
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"

@@ -1,13 +1,13 @@
 // External libs
-import { useWeb3React } from '@web3-react/core'
 import { toast } from 'react-toastify'
+import { useWeb3React } from '@web3-react/core'
 
 // Assets
 
 // Componentes
 import Button from '@/components/atoms/Button'
-import Typography from '@/components/atoms/Typography'
 import SideBarMenu from '@/components/organisms/SideBar/SideBarMenu'
+import Typography from '@/components/atoms/Typography'
 
 // Subcomponentes and style
 import * as Styled from './styles'

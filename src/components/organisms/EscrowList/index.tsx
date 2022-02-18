@@ -4,11 +4,11 @@ import { memo } from 'react'
 // Assets
 
 // Componentes
-
-// Subcomponentes and style
 import EscrowListItemDispute from '@/components/molecules/EscrowListItems/EscrowListItemDispute'
 import EscrowListItemOpen from '@/components/molecules/EscrowListItems/EscrowListItemOpen'
 import EscrowListItemPaid from '@/components/molecules/EscrowListItems/EscrowListItemPaid'
+
+// Subcomponentes and style
 import * as Styled from './styles'
 
 // Services

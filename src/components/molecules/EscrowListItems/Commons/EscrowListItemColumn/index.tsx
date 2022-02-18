@@ -1,33 +1,33 @@
 // External libs
+import Link from 'next/link'
+import { useWeb3React } from '@web3-react/core'
 
 // Assets
 
 // Componentes
+import Typography from '../../../../atoms/Typography'
 
 // Subcomponentes and style
-import Typography from '../../../../atoms/Typography'
 import * as Styled from './styles'
 
 // Services
 
 // Utils
 import { Ellipse } from '@/utils/text'
-import Link from 'next/link'
-import { useWeb3React } from '@web3-react/core'
 
 // Types
 export interface IEscrowListItemColumnProps {
+  ellipse?: boolean
   title: string
   value: string | number
   width?: string
-  ellipse?: boolean
 }
 
 const EscrowListItemColumn: React.FC<IEscrowListItemColumnProps> = ({
+  ellipse,
   title,
   value,
-  width = 'min-content',
-  ellipse
+  width = 'min-content'
 }) => {
   const { account } = useWeb3React()
 

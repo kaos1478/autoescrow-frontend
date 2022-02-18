@@ -3,10 +3,10 @@
 // Assets
 
 // Componentes
-
-// Subcomponentes and style
 import Button from '@/components/atoms/Button'
 import Typography from '@/components/atoms/Typography'
+
+// Subcomponentes and style
 import * as Styled from './styles'
 import { colorVariants } from '@/components/atoms/Button/styles'
 
@@ -14,13 +14,13 @@ import { colorVariants } from '@/components/atoms/Button/styles'
 
 // Types
 interface IFrameProps {
-  title: string
-  isOpen: boolean
   btns: {
     text: string
     handleClick: () => void
     color: keyof typeof colorVariants
   }[]
+  isOpen: boolean
+  title: string
 }
 
 const Frame: React.FC<IFrameProps> = ({ title, isOpen, btns, children }) => {

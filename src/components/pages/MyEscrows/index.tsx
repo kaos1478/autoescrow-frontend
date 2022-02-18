@@ -5,20 +5,20 @@ import { useWeb3React } from '@web3-react/core'
 // Assets
 
 // Componentes
-import Select from '@/components/atoms/Select'
 import EscrowList from '@/components/organisms/EscrowList'
-import Page from '@/components/templates/Page'
-import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
-import { asyncGetMyEscrows } from '@/redux/slicers/myEscrowsSlice'
-import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
-import { IGetEscrowsBySender } from '@/types/autoEscrowContractTypes'
 import Input from '@/components/atoms/Input'
+import Page from '@/components/templates/Page'
+import Select from '@/components/atoms/Select'
 
 // Subcomponentes and style
 
 // Services
+import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
+import { asyncGetMyEscrows } from '@/redux/slicers/myEscrowsSlice'
+import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
 
 // Types
+import { IGetEscrowsBySender } from '@/types/autoEscrowContractTypes'
 interface IEscrowStatus {
   value:
     | 'opensAsSender'
@@ -72,9 +72,9 @@ const MyEscrows: React.FC = () => {
   const addons = () => (
     <div>
       <Input
-        placeholder="Search ID"
-        onChange={e => setInputText(e.currentTarget.value)}
         margin="0 0.5rem 0 0"
+        onChange={e => setInputText(e.currentTarget.value)}
+        placeholder="Search ID"
       />
       <Select handleChange={selectHandleChange} options={escrowsStatus} />
     </div>

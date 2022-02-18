@@ -46,36 +46,36 @@ const theme = {
       }
     },
     input: {
-      placeHolder: quaternaryColor,
-      text: '#FFFFFF',
       background: '#242D48',
-      border: quaternaryColor
+      border: quaternaryColor,
+      placeHolder: quaternaryColor,
+      text: '#FFFFFF'
     },
     text: {
-      light: '#9AA9D5',
-      dark: quaternaryColor
+      dark: quaternaryColor,
+      light: '#9AA9D5'
     },
     icon: {
-      primary: primaryColor,
-      dark: quaternaryColor
+      dark: quaternaryColor,
+      primary: primaryColor
     }
   },
   sizes: {
     button: {
+      borderRadius: buttonBorderRadius,
       height: '2.2rem',
-      minWidth: '6.88rem',
-      borderRadius: buttonBorderRadius
+      minWidth: '6.88rem'
     },
     input: {
-      height: '2.2rem',
-      borderRadius: buttonBorderRadius
+      borderRadius: buttonBorderRadius,
+      height: '2.2rem'
     },
     font: {
-      ultraSmall: '0.75rem',
-      small: '0.88rem',
-      medium: '1.125rem',
       large: '1.5rem',
-      ultraLarge: '2.25rem'
+      medium: '1.125rem',
+      small: '0.88rem',
+      ultraLarge: '2.25rem',
+      ultraSmall: '0.75rem'
     },
     card: {
       borderRadius: '0.3125rem'

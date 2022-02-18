@@ -12,8 +12,8 @@ import * as Styled from './styles'
 
 // Types
 export interface IInfoListItemProps {
-  title: string
   description: string | number
+  title: string
 }
 
 const InfoListItem: React.FC<IInfoListItemProps> = ({ title, description }) => {
