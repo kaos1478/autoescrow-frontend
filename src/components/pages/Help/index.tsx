@@ -16,8 +16,9 @@ const Help: React.FC = () => {
   return (
     <Page title="Help">
       {/* <InfoList infoList={infoList} /> */}
-      <Typography as="heading2" align="center">
-        In Contruction
+      <Typography as="heading2" align="center" marginTop="1rem">
+        In Construction! More info:{' '}
+        <a href="https://discord.gg/sBUyJgPsPR">Discord</a>
       </Typography>
     </Page>
   )
