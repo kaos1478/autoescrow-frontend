@@ -54,8 +54,8 @@ const ModalCreateEscrow: React.FC = () => {
   const createEscrow = async () => {
     await asyncValidator(
       contract?.createEscrow(toWei(amount)),
-      'Success: escrow sent to the blockchain!',
-      'Waiting the confirmation'
+      'Waiting the confirmation',
+      'Success: escrow sent to the blockchain!'
     )
     dispatch(
       setOpen({

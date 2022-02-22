@@ -32,8 +32,8 @@ const EscrowListItemPaidButtons: React.FC<IEscrowListItemPaidButtonsProps> = ({
   const disputeEscrow = async () => {
     asyncValidator(
       contract?.disputeEscrow(id),
-      'Dispute submitted to the blockchain!',
-      'Waiting for confirmation!'
+      'Waiting for confirmation!',
+      'Dispute submitted to the blockchain!'
     )
   }
 
