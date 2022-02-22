@@ -14,9 +14,9 @@ const initialState: networks = {
   selected: 'polygon',
   networks: [
     {
-      text: 'Polygon',
+      text: 'Poly Test',
       value: 'polygon'
-    },
+    } /*,
     {
       text: 'Binance',
       value: 'binance'
@@ -24,7 +24,7 @@ const initialState: networks = {
     {
       text: 'Ethereum',
       value: 'ethereum'
-    }
+    } */
   ]
 }
 

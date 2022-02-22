@@ -12,12 +12,15 @@ import Typography from '@/components/atoms/Typography'
 // Services
 import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
 import { toEther } from '@/utils/contract'
+import Input from '@/components/atoms/Input'
+import Button from '@/components/atoms/Button'
 
 // Types
 
 const Admin: React.FC = () => {
   const contract = useAutoEscrowContract()
   const [infoAsOwner, setInfoAsOwner] = useState<any>({})
+  const [tax, setTax] = useState<string>('')
 
   const getContractInfoAsOwner = async () => {
     const info = await contract?.getContractInfoAsOwner()
@@ -35,6 +38,9 @@ const Admin: React.FC = () => {
   }
   const execTaxCollector = async () => {
     await contract?.execTaxCollector()
+  }
+  const setTaxPercentage = async () => {
+    await contract?.setTaxPercentage(tax)
   }
 
   useEffect(() => {
@@ -56,9 +62,24 @@ const Admin: React.FC = () => {
       </Typography>
       <br />
       <Typography as="body1">New Owner: {infoAsOwner.newOwner}</Typography>
+      <br />
+      <Input
+        onChange={e => setTax(e.currentTarget.value)}
+        type="number"
+        min={0}
+        max={100}
+        value={tax}
+      />
+      <Button color="default" onClick={setTaxPercentage}>
+        setTax
+      </Button>
+      <br />
       <button onClick={execToggleActive}>execToggleActive</button>
+      <br />
       <button onClick={execAbandonedCollector}>execAbandonedCollector</button>
+      <br />
       <button onClick={execGarbageCollector}>execGarbageCollector</button>
+      <br />
       <button onClick={execTaxCollector}>execTaxCollector</button>
     </Page>
   )
