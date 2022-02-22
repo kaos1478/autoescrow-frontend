@@ -19,7 +19,11 @@ export const Container = styled.div`
     ${mq({ display: ['block', 'block', 'none'] })}
   }
 
-  & > button {
+  & > button:nth-child(3) {
     ${mq({ display: ['none', 'none', 'block'] })}
+  }
+
+  & > button:nth-child(4) {
+    ${mq({ display: ['block', 'block', 'none'] })}
   }
 `

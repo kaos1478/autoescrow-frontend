@@ -46,6 +46,15 @@ const SideBar: React.FC = () => {
       <Button color="default" marginBottom="2rem" onClick={handleOnClick}>
         New Escrow
       </Button>
+      <Button
+        color="defaultReverse"
+        withoutMinWidth
+        onClick={handleOnClick}
+        padding="0 0.5rem"
+        marginBottom="1rem"
+      >
+        New
+      </Button>
       <SideBarMenu />
     </Styled.Container>
   )

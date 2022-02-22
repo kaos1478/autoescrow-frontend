@@ -21,7 +21,6 @@ interface IEscrowListProps {
 
 const EscrowList: React.FC<IEscrowListProps> = ({ escrows, status }) => {
   const getEscrowListItem = (key: any, escrow: any) => {
-    console.log(status)
     if (status === 'open') {
       return <EscrowListItemOpen key={key} escrow={escrow} />
     } else if (status === 'paid') {

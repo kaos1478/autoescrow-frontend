@@ -7,7 +7,8 @@ import {
   lastEscrowsReducer,
   modalsReducer,
   myEscrowsReducer,
-  myProfileReducer
+  myProfileReducer,
+  networksReducer
 } from '@/redux/slicers'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
@@ -20,7 +21,8 @@ export const store = configureStore({
     lastEscrows: lastEscrowsReducer,
     modals: modalsReducer,
     myEscrows: myEscrowsReducer,
-    myProfile: myProfileReducer
+    myProfile: myProfileReducer,
+    networks: networksReducer
   }
 })
 

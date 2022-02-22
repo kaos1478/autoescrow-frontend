@@ -26,10 +26,5 @@ export const Container = styled.div`
 
 export const RightContent = styled.div`
   display: flex;
-`
-
-export const LeftContent = styled.div`
-  ${mq({
-    display: ['flex', 'flex', 'none']
-  })}
+  align-items: center;
 `
