@@ -46,8 +46,8 @@ export const myProfileSlice = createSlice({
 export const { setMyProfile, setFetching, setError } = myProfileSlice.actions
 
 export const asyncGetProfile = (
-  address: string,
-  contract: Contract | null
+  contract: Contract | null,
+  address: string
 ): AppThunk => {
   return async (dispatch: AppDispatch) => {
     let info: IGetContractInfo = initialState.info
