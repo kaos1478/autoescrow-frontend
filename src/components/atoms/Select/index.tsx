@@ -1,27 +1,27 @@
 // External libs
+import { ChangeEvent, SelectHTMLAttributes, useState } from 'react'
 
 // Assets
 
 // Componentes
 
 // Subcomponentes and style
-import { ChangeEvent, SelectHTMLAttributes, useState } from 'react'
 import * as Styled from './styles'
 
 // Services
 
 // Types
 export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  handleChange: (e: ChangeEvent<HTMLSelectElement>) => void
   margin?: string
   options: { value: string; text: string }[]
-  handleChange: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
 const Select: React.FC<ISelectProps> = ({
-  onFocus = () => {},
-  onBlur = () => {},
   handleChange = () => {},
   margin = 'inherit',
+  onBlur = () => {},
+  onFocus = () => {},
   options,
   ...rest
 }) => {
@@ -42,8 +42,8 @@ const Select: React.FC<ISelectProps> = ({
       active={active}
       margin={margin}
       onBlur={handleOnBlur}
-      onFocus={handleOnFocus}
       onChange={handleChange}
+      onFocus={handleOnFocus}
       {...rest}
     >
       {options.map(option => (

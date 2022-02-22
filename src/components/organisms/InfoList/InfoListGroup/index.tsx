@@ -3,9 +3,9 @@
 // Assets
 
 // Componentes
+import Typography from '@/components/atoms/Typography'
 
 // Subcomponentes and style
-import Typography from '@/components/atoms/Typography'
 import * as Styled from './styles'
 
 // Services

@@ -1,21 +1,21 @@
 // External libs
+import { ChangeEvent } from 'react'
 
 // Assets
 
 // Componentes
-
-// Subcomponentes and style
+import Frame from '../Commons/Frame'
 import Input from '@/components/atoms/Input'
 import Typography from '@/components/atoms/Typography'
-import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
-import { setOpen } from '@/redux/slicers/modalsSlice'
-import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
-import { toWei } from '@/utils/contract'
-import { ChangeEvent } from 'react'
-import Frame from '../Commons/Frame'
-import { useAsyncValidator } from '@/hooks/useContractMiddleware'
+
+// Subcomponentes and style
 
 // Services
+import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
+import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
+import { setOpen } from '@/redux/slicers/modalsSlice'
+import { toWei } from '@/utils/contract'
+import { useAsyncValidator } from '@/hooks/useContractMiddleware'
 
 // Types
 
@@ -54,8 +54,8 @@ const ModalCreateEscrow: React.FC = () => {
   const createEscrow = async () => {
     await asyncValidator(
       contract?.createEscrow(toWei(amount)),
-      'Success: escrow sent to the blockchain!',
-      'Waiting the confirmation'
+      'Waiting the confirmation',
+      'Success: escrow sent to the blockchain!'
     )
     dispatch(
       setOpen({
@@ -70,8 +70,6 @@ const ModalCreateEscrow: React.FC = () => {
 
   return (
     <Frame
-      title="Create Escrow"
-      isOpen={isOpen}
       btns={[
         {
           text: 'Confirm',
@@ -84,16 +82,18 @@ const ModalCreateEscrow: React.FC = () => {
           color: 'danger'
         }
       ]}
+      isOpen={isOpen}
+      title="Create Escrow"
     >
       <Typography as="body1">
         To create a escrows, just inform the amount
       </Typography>
       <Input
-        placeholder="Amount"
         margin="1rem 0rem"
-        type="number"
         min={0}
         onChange={handleOnChange}
+        placeholder="Amount"
+        type="number"
         value={amount}
       />
       <Typography as="body4">

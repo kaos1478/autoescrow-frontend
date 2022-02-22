@@ -15,14 +15,10 @@ import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
 // Types
 interface IEscrowListItemPaidButtonsProps {
   id: number
-  payer: string
-  sender: string
 }
 
 const EscrowListItemPaidButtons: React.FC<IEscrowListItemPaidButtonsProps> = ({
-  id,
-  sender,
-  payer
+  id
 }) => {
   const contract = useAutoEscrowContract()
   const asyncValidator = useAsyncValidator()
@@ -30,8 +26,8 @@ const EscrowListItemPaidButtons: React.FC<IEscrowListItemPaidButtonsProps> = ({
   const disputeEscrow = async () => {
     asyncValidator(
       contract?.disputeEscrow(id),
-      'Dispute submitted to the blockchain!',
-      'Waiting for confirmation!'
+      'Waiting for confirmation!',
+      'Dispute submitted to the blockchain!'
     )
   }
 
@@ -46,18 +42,18 @@ const EscrowListItemPaidButtons: React.FC<IEscrowListItemPaidButtonsProps> = ({
   return (
     <EscrowListItemButtonsWrapper>
       <Button
-        onClick={disputeEscrow}
         color="danger"
-        marginRight="0.5rem"
         disabled
+        marginRight="0.5rem"
+        onClick={disputeEscrow}
       >
         Open Dispute
       </Button>
       <Button
-        onClick={confirmEscrow}
         color="success"
-        marginRight="0.5rem"
         disabled
+        marginRight="0.5rem"
+        onClick={confirmEscrow}
       >
         Confirm
       </Button>

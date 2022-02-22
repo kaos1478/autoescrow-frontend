@@ -33,15 +33,15 @@ const animation4 = keyframes`
 `
 
 export const Container = styled.div`
-  width: min-content;
-  height: 20px;
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 20px;
+  width: min-content;
 
   & > div {
-    width: 3px;
     background-color: ${props => props.theme.colors.primary};
     margin: 0 0.1rem;
+    width: 3px;
   }
 
   & > div:nth-child(1) {

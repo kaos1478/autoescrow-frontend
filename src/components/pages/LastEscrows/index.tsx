@@ -12,8 +12,8 @@ import Page from '@/components/templates/Page'
 
 // Services
 import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
-import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
 import { asyncGetLastEscrows } from '@/redux/slicers/lastEscrowsSlice'
+import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
 
 // Types
 

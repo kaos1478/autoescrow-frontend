@@ -1,20 +1,20 @@
 // External libs
+import { useEffect } from 'react'
+import { useWeb3React } from '@web3-react/core'
 
 // Assets
 
 // Componentes
 import InfoList from '@/components/organisms/InfoList'
 import Page from '@/components/templates/Page'
-import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
-import { asyncGetProfile } from '@/redux/slicers/myProfileSlice'
-import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
-import { Ellipse } from '@/utils/text'
-import { useWeb3React } from '@web3-react/core'
-import { useEffect } from 'react'
 
 // Subcomponentes and style
 
 // Services
+import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
+import { asyncGetProfile } from '@/redux/slicers/myProfileSlice'
+import { Ellipse } from '@/utils/text'
+import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
 
 // Types
 interface IProfileProps {
@@ -40,8 +40,8 @@ const Profile: React.FC<IProfileProps> = ({ address }) => {
 
   return (
     <Page
-      title={`Profile - ${account && Ellipse(address || account)}`}
       loading={fetching}
+      title={`Profile - ${account && Ellipse(address || account)}`}
     >
       <InfoList />
     </Page>

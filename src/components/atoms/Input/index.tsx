@@ -1,11 +1,11 @@
 // External libs
+import { InputHTMLAttributes, useState } from 'react'
 
 // Assets
 
 // Componentes
 
 // Subcomponentes and style
-import { InputHTMLAttributes, useState } from 'react'
 import * as Styled from './styles'
 
 // Services
@@ -16,9 +16,9 @@ export interface IINputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input: React.FC<IINputProps> = ({
-  onFocus = () => {},
-  onBlur = () => {},
   margin = 'inherit',
+  onBlur = () => {},
+  onFocus = () => {},
   ...rest
 }) => {
   const [active, setActive] = useState<boolean>(false)

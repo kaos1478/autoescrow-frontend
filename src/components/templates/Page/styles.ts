@@ -7,9 +7,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100vh - 3.8rem);
-  ${mq({ padding: ['1rem', '1rem', '1.6rem'] })}
   position: relative;
   width: 100%;
+  ${mq({ padding: ['1rem', '1rem', '1.6rem'] })}
 `
 
 export const Content = styled.div`
@@ -24,12 +24,12 @@ export const Header = styled.div`
   border-bottom: 1px solid ${props => props.theme.colors.quaternary};
   display: flex;
   flex-wrap: wrap;
-  min-height: 4.5rem;
   justify-content: space-between;
+  min-height: 4.5rem;
   padding: 1rem;
 `
 
 export const Title = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
 `

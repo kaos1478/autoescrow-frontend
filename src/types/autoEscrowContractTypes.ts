@@ -1,12 +1,12 @@
 import {
-  IOpensAsSender,
-  IPaidsAsPayer,
-  IPaidsAsSender,
+  IDisputeEscrow,
   IDisputesAsPayer,
   IDisputesAsSender,
   IOpenEscrow,
+  IOpensAsSender,
   IPaidEscrow,
-  IDisputeEscrow
+  IPaidsAsPayer,
+  IPaidsAsSender
 } from '@/types/autoEscrowEscrowsTypes'
 
 export type TGetLastEscrows = IOpensAsSender[]
@@ -25,28 +25,28 @@ export interface IGetContratInfo {
 }
 
 export interface IGetEscrowsBySender {
-  disputesAsSender: IDisputesAsSender[]
   disputesAsPayer: IDisputesAsPayer[]
+  disputesAsSender: IDisputesAsSender[]
   opensAsSender: IOpensAsSender[]
   paidsAsPayer: IPaidsAsPayer[]
   paidsAsSender: IPaidsAsSender[]
 }
 
 export interface IGetEscrowById {
+  disputes: IDisputeEscrow[]
   opens: IOpenEscrow[]
   paids: IPaidEscrow[]
-  disputes: IDisputeEscrow[]
 }
 
 export interface IGetContractInfo {
+  currentDisputeAsPayer: number
   currentDisputeAsSender: number
   currentOpenAsSender: number
+  currentPaidAsPayer: number
   currentPaidAsSender: number
   totalCreated: number
-  totalDisputeAsSender: number
-  totalPaidAsSender: number
-  currentDisputeAsPayer: number
-  currentPaidAsPayer: number
   totalDisputeAsPayer: number
+  totalDisputeAsSender: number
   totalPaidAsPayer: number
+  totalPaidAsSender: number
 }

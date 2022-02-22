@@ -1,13 +1,13 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Contract } from 'ethers'
 import { AppDispatch, AppThunk } from '../store'
+import { Contract } from 'ethers'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { hexDateToNumber } from '@/utils/contract'
 import { IGetEscrowById } from '@/types/autoEscrowContractTypes'
 import {
+  IDisputeEscrow,
   IOpenEscrow,
-  IPaidEscrow,
-  IDisputeEscrow
+  IPaidEscrow
 } from '@/types/autoEscrowEscrowsTypes'
-import { hexDateToNumber } from '@/utils/contract'
 
 export interface IGetEscrowByIDState {
   error: string
@@ -26,8 +26,8 @@ const initialState: IGetEscrowByIDState = {
 }
 
 export const findBydIDSlice = createSlice({
-  name: 'myEscrows',
   initialState,
+  name: 'myEscrows',
   reducers: {
     setFindByID: (state, action: PayloadAction<IGetEscrowById>) => {
       state.escrows = action.payload

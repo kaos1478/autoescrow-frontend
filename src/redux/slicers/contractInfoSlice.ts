@@ -1,8 +1,8 @@
 import { AppDispatch, AppThunk } from '../store'
 import { Contract } from 'ethers'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IGetContratInfo } from '@/types/autoEscrowContractTypes'
 import { hexToDay } from '@/utils/contract'
+import { IGetContratInfo } from '@/types/autoEscrowContractTypes'
 
 export interface IContractInfoState extends IGetContratInfo {
   fetching: boolean
@@ -23,8 +23,8 @@ const initialState: IContractInfoState = {
 }
 
 export const contractInfoSlice = createSlice({
-  name: 'contractInfo',
   initialState,
+  name: 'contractInfo',
   reducers: {
     setContractInfo: (state, action: PayloadAction<IGetContratInfo>) => {
       state.owner = action.payload.owner

@@ -3,8 +3,8 @@
 // Assets
 
 // Componentes
-import Typography from '@/components/atoms/Typography'
 import Page from '@/components/templates/Page'
+import Typography from '@/components/atoms/Typography'
 
 // Subcomponentes and style
 

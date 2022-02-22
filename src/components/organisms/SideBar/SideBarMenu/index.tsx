@@ -4,9 +4,9 @@
 import {
   ActivitySVG,
   BookOpenSVG,
-  UserSVG,
+  HelpCircleSVG,
   SearchSVG,
-  HelpCircleSVG
+  UserSVG
 } from '@/assets/svgs'
 
 // Componentes

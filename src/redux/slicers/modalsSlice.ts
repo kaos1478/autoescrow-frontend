@@ -22,8 +22,8 @@ type TSetOpen = {
 }
 
 export const modalsSlice = createSlice({
-  name: 'modals',
   initialState,
+  name: 'modals',
   reducers: {
     setOpen: (state, action: PayloadAction<TSetOpen>) => {
       state[action.payload.modal] = action.payload.state

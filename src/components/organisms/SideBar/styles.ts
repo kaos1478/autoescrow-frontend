@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import facepaint from 'facepaint'
+import styled from 'styled-components'
 import theme from '@/styles/theme'
 
 const mq = facepaint(theme.breakpoints)

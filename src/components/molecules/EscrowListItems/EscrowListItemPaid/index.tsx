@@ -34,30 +34,30 @@ const EscrowListItemPaid: React.FC<IEscrowListItemProps> = ({ escrow }) => {
     <EscrowListItemFrame status="paid">
       <EscrowListItemColumn width="5rem" title="ID" value={parsedEscrow.id} />
       <EscrowListItemColumn
-        width="9rem"
         title="Ammount"
         value={parsedEscrow.ammount}
+        width="9rem"
       />
       <EscrowListItemColumn
-        width={parsedEscrow.sender === account ? '5rem' : '15rem'}
+        ellipse
         title="Owner"
         value={
           parsedEscrow.sender === account ? 'You' : Ellipse(parsedEscrow.sender)
         }
-        ellipse
+        width={parsedEscrow.sender === account ? '5rem' : '15rem'}
       />
       <EscrowListItemColumn
-        width={parsedEscrow.payer === account ? '5rem' : '15rem'}
         title="Payer"
         value={
           parsedEscrow.payer === account ? 'You' : Ellipse(parsedEscrow.payer)
         }
+        width={parsedEscrow.payer === account ? '5rem' : '15rem'}
       />
       <EscrowListItemColumn width="10rem" title="Status" value="Paid" />
       <EscrowListItemPaidButtons
         id={parsedEscrow.id}
-        sender={parsedEscrow.sender}
         payer={parsedEscrow.payer}
+        sender={parsedEscrow.sender}
       />
     </EscrowListItemFrame>
   )

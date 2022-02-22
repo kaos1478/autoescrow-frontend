@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components'
-import { IEscrowListItemFrame } from '.'
 import facepaint from 'facepaint'
+import styled, { css } from 'styled-components'
 import theme from '@/styles/theme'
+import { IEscrowListItemFrame } from '.'
 
 const mq = facepaint(theme.breakpoints)
 
@@ -57,10 +57,10 @@ const stylesByStatus = {
 }
 
 export const Container = styled.li<IEscrowListItemFrame>`
-  display: grid;
   border-bottom: 1px solid ${props => props.theme.colors.quaternary};
-  padding: 1rem 1rem;
+  display: grid;
   grid-template-columns: 1fr 1fr 2fr 1fr 1fr 2fr;
+  padding: 1rem 1rem;
 
   ${props => stylesByStatus[props.status]}
 `

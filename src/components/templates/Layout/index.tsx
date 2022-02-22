@@ -1,6 +1,6 @@
 // External libs
-import { useWeb3React } from '@web3-react/core'
 import { useEffect } from 'react'
+import { useWeb3React } from '@web3-react/core'
 
 // Assets
 
@@ -13,9 +13,9 @@ import * as Styled from './styles'
 
 // Services
 import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
-import { useAppDispatch } from '@/redux/store'
-import { asyncGetContractInfo } from '@/redux/slicers/contractInfoSlice'
 import useInjectedConnector from '@/hooks/useInjectedConnector'
+import { asyncGetContractInfo } from '@/redux/slicers/contractInfoSlice'
+import { useAppDispatch } from '@/redux/store'
 
 // Types
 

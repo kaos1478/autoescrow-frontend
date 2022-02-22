@@ -1,4 +1,5 @@
 // External libs
+import { useWeb3React } from '@web3-react/core'
 
 // Assets
 
@@ -9,9 +10,8 @@ import Button from '@/components/atoms/Button'
 import { EscrowListItemButtonsWrapper } from '@/components/molecules/EscrowListItems/Commons'
 
 // Services
-import { useAsyncValidator } from '@/hooks/useContractMiddleware'
 import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
-import { useWeb3React } from '@web3-react/core'
+import { useAsyncValidator } from '@/hooks/useContractMiddleware'
 
 // Types
 interface IEscrowListItemPaidButtonsProps {
@@ -22,18 +22,18 @@ interface IEscrowListItemPaidButtonsProps {
 
 const EscrowListItemPaidButtons: React.FC<IEscrowListItemPaidButtonsProps> = ({
   id,
-  sender,
-  payer
+  payer,
+  sender
 }) => {
-  const { account } = useWeb3React()
-  const contract = useAutoEscrowContract()
   const asyncValidator = useAsyncValidator()
+  const contract = useAutoEscrowContract()
+  const { account } = useWeb3React()
 
   const disputeEscrow = async () => {
     asyncValidator(
       contract?.disputeEscrow(id),
-      'Dispute submitted to the blockchain!',
-      'Waiting for confirmation!'
+      'Waiting for confirmation!',
+      'Dispute submitted to the blockchain!'
     )
   }
 
@@ -48,18 +48,18 @@ const EscrowListItemPaidButtons: React.FC<IEscrowListItemPaidButtonsProps> = ({
   return (
     <EscrowListItemButtonsWrapper>
       <Button
-        onClick={disputeEscrow}
         color="danger"
-        marginRight="0.5rem"
         disabled={!(sender === account || payer === account)}
+        marginRight="0.5rem"
+        onClick={disputeEscrow}
       >
         Open Dispute
       </Button>
       <Button
-        onClick={confirmEscrow}
         color="success"
-        marginRight="0.5rem"
         disabled={payer !== account}
+        marginRight="0.5rem"
+        onClick={confirmEscrow}
       >
         Confirm
       </Button>

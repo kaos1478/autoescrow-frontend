@@ -7,17 +7,17 @@ import { useWeb3React } from '@web3-react/core'
 
 // Componentes
 import Button from '@/components/atoms/Button'
-import { colorVariants } from '@/components/atoms/Button/styles'
 import TopBarMenu from '@/components/organisms/TopBar/TopBarMenu'
-import useInjectedConnector from '@/hooks/useInjectedConnector'
-import { useAppDispatch } from '@/redux/store'
-import { Ellipse } from '@/utils/text'
+import { colorVariants } from '@/components/atoms/Button/styles'
 
 // Subcomponentes and style
 import * as Styled from './styles'
 
 // Services
+import useInjectedConnector from '@/hooks/useInjectedConnector'
+import { Ellipse } from '@/utils/text'
 import { setOpen } from '@/redux/slicers/modalsSlice'
+import { useAppDispatch } from '@/redux/store'
 
 // Types
 interface IConfig {

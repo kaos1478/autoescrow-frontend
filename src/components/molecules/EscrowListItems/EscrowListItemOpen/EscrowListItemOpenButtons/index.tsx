@@ -33,8 +33,8 @@ const EscrowListItemOpenButtons: React.FC<IEscrowListItemOpenButtonsProps> = ({
   const payEscrow = async () => {
     asyncValidator(
       contract?.payEscrow(id, { value: toWei(amount) }),
-      'Payment submitted to the blockchain!',
-      'Waiting for confirmation!'
+      'Waiting for confirmation!',
+      'Payment submitted to the blockchain!'
     )
   }
 

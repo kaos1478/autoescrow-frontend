@@ -1,20 +1,20 @@
 // External libs
+import { useState } from 'react'
 
 // Assets
 
 // Componentes
-import Input from '@/components/atoms/Input'
-import Typography from '@/components/atoms/Typography'
 import EscrowList from '@/components/organisms/EscrowList'
+import Input from '@/components/atoms/Input'
 import Page from '@/components/templates/Page'
-import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
-import { asyncGetEscrowByID } from '@/redux/slicers/findByIDSlice'
-import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
-import { useState } from 'react'
+import Typography from '@/components/atoms/Typography'
 
 // Subcomponentes and style
 
 // Services
+import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
+import { asyncGetEscrowByID } from '@/redux/slicers/findByIDSlice'
+import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
 
 // Types
 

@@ -18,8 +18,8 @@ export const Container = styled.li<IContainerProps>`
   cursor: pointer;
   display: flex;
   height: 2.8rem;
-  transition: all 0.5s;
   justify-content: center;
+  transition: all 0.5s;
 
   ${mq({
     padding: ['1.5rem 0', '1.5rem 0', '1.5rem'],

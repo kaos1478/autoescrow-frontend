@@ -5,8 +5,8 @@ type TUseContractMiddleware = (data: any) => any
 export const useAsyncValidator = () =>
   async function useAsyncValidator(
     func: TUseContractMiddleware,
-    successMsg: string,
-    promiseMsg: string
+    promiseMsg: string,
+    successMsg: string
   ) {
     try {
       toast(promiseMsg, {
