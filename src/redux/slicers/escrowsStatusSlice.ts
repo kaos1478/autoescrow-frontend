@@ -17,7 +17,6 @@ export const escrowsStatusSlice = createSlice({
   name: 'escrowsStatus',
   reducers: {
     setEscrowsStatus: (state, action: PayloadAction<escrowsStatus[]>) => {
-      console.log('action.payload: ', action.payload)
       state = action.payload
     }
   }

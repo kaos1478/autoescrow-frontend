@@ -7,7 +7,7 @@ export const Header = styled.div`
   height: 2.5rem;
   padding: 0.5rem;
   position: absolute;
-  top: calc(-2.5rem + 2px);
+  transform: translateY(-100%);
   width: fit-content;
 `
 

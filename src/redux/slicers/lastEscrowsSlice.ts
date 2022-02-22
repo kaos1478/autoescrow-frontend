@@ -32,7 +32,6 @@ export const { setLastEscrows, setFetching } = lastEscrowsSlice.actions
 
 export const asyncGetLastEscrows = (contract: Contract | null): AppThunk => {
   return async (dispatch: AppDispatch) => {
-    console.log('called')
     const parsedLastEscrows: TGetLastEscrows = []
     try {
       dispatch(setFetching(true))

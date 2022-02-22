@@ -1,5 +1,4 @@
 // External libs
-import { toast } from 'react-toastify'
 import { useMemo } from 'react'
 import { useWeb3React } from '@web3-react/core'
 
@@ -16,8 +15,7 @@ import * as Styled from './styles'
 // Services
 import useInjectedConnector from '@/hooks/useInjectedConnector'
 import { Ellipse } from '@/utils/text'
-import { setOpen } from '@/redux/slicers/modalsSlice'
-import { useAppDispatch } from '@/redux/store'
+import TopBarNetworks from './TopBarNetworks'
 
 // Types
 interface IConfig {
@@ -32,7 +30,6 @@ interface IButtonConfig {
 
 const TopBar: React.FC = () => {
   const { activate, account, deactivate, error } = useWeb3React()
-  const dispatch = useAppDispatch()
 
   const connect = async () => {
     try {
@@ -71,33 +68,11 @@ const TopBar: React.FC = () => {
     }
   }
 
-  const handleOnClick = () => {
-    if (account && !error) {
-      dispatch(
-        setOpen({
-          modal: 'newEscrow',
-          state: { amount: 0, isOpen: true }
-        })
-      )
-    } else {
-      toast.error('Denied! Check: connected and network')
-    }
-  }
-
   return (
     <Styled.Container>
-      <Styled.LeftContent>
-        <Button
-          color="defaultReverse"
-          withoutMinWidth
-          onClick={handleOnClick}
-          padding="0 0.5rem"
-        >
-          New
-        </Button>
-      </Styled.LeftContent>
       <Styled.RightContent>
         <TopBarMenu />
+        <TopBarNetworks />
         <Button color={buttonConfig[connectionStatus].color} onClick={connect}>
           {buttonConfig[connectionStatus].text}
         </Button>
