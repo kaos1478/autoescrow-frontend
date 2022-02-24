@@ -9,6 +9,7 @@ import { useWeb3React } from '@web3-react/core'
 // Componentes
 import EscrowListItemOpenButtons from './EscrowListItemOpenButtons'
 import { EscrowListItemColumn, EscrowListItemFrame } from '../Commons'
+import { useAppSelector } from '@/redux/store'
 
 // Subcomponentes and style
 
@@ -22,6 +23,10 @@ interface IEscrowListItemProps {
 const EscrowListItemOpen: React.FC<IEscrowListItemProps> = ({ escrow }) => {
   const { account } = useWeb3React()
 
+  const { selected, networks } = useAppSelector(state => state.networks)
+
+  const selectedNetwork = networks.find(network => network.value === selected)
+
   const parsedEscrow = {
     ammount: toEther(escrow.weiAmount),
     id: escrow.id,
@@ -33,9 +38,9 @@ const EscrowListItemOpen: React.FC<IEscrowListItemProps> = ({ escrow }) => {
     <EscrowListItemFrame status="open">
       <EscrowListItemColumn width="5rem" title="ID" value={parsedEscrow.id} />
       <EscrowListItemColumn
-        title="Ammount"
+        title={`Ammount (${selectedNetwork?.coin})`}
         value={parsedEscrow.ammount}
-        width="9rem"
+        width="9.5rem"
       />
       <EscrowListItemColumn
         ellipse

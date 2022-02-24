@@ -12,6 +12,7 @@ import CardList from '@/components/organisms/CardList'
 
 // Subcomponentes and style
 import * as Styled from './styles'
+import { useAppSelector } from '@/redux/store'
 
 // Services
 
@@ -30,11 +31,19 @@ const Page: React.FC<IPageProps> = ({
   title,
   children
 }) => {
-  const { account } = useWeb3React()
+  const { account, chainId } = useWeb3React()
+  const { selected } = useAppSelector(state => state.networks)
 
   const getContent = useMemo(() => {
-    if (account) {
+    if (account && chainId === parseInt(selected)) {
       return children
+    } else if (account && chainId !== parseInt(selected)) {
+      return (
+        <Typography as="heading2" align="center" marginTop="2rem">
+          Wrong Network! check the connected network is the same as the
+          selected!
+        </Typography>
+      )
     } else {
       return (
         <Typography as="heading2" align="center" marginTop="2rem">
@@ -42,7 +51,7 @@ const Page: React.FC<IPageProps> = ({
         </Typography>
       )
     }
-  }, [account, children])
+  }, [account, children, chainId, selected])
 
   return (
     <Styled.Container>
