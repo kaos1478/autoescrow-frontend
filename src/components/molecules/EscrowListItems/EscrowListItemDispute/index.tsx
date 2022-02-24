@@ -15,12 +15,17 @@ import EscrowListItemDisputeButtons from './EscrowListItemDisputeButtons'
 
 // Types
 import { IPaidsAsPayer, IPaidsAsSender } from '@/types/autoEscrowEscrowsTypes'
+import { useAppSelector } from '@/redux/store'
 interface IEscrowListItemProps {
   escrow: IPaidsAsPayer | IPaidsAsSender
 }
 
 const EscrowListItemDispute: React.FC<IEscrowListItemProps> = ({ escrow }) => {
   const { account } = useWeb3React()
+
+  const { selected, networks } = useAppSelector(state => state.networks)
+
+  const selectedNetwork = networks.find(network => network.value === selected)
 
   const parsedEscrow = {
     ammount: toEther(escrow.weiAmount),
@@ -34,9 +39,9 @@ const EscrowListItemDispute: React.FC<IEscrowListItemProps> = ({ escrow }) => {
     <EscrowListItemFrame status="dispute">
       <EscrowListItemColumn width="5rem" title="ID" value={parsedEscrow.id} />
       <EscrowListItemColumn
-        title="Ammount"
+        title={`Ammount (${selectedNetwork?.coin})`}
         value={parsedEscrow.ammount}
-        width="9rem"
+        width="9.5rem"
       />
       <EscrowListItemColumn
         ellipse

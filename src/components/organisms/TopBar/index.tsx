@@ -16,6 +16,7 @@ import * as Styled from './styles'
 import useInjectedConnector from '@/hooks/useInjectedConnector'
 import { Ellipse } from '@/utils/text'
 import TopBarNetworks from './TopBarNetworks'
+import { useAppSelector } from '@/redux/store'
 
 // Types
 interface IConfig {
@@ -29,7 +30,9 @@ interface IButtonConfig {
 }
 
 const TopBar: React.FC = () => {
-  const { activate, account, deactivate, error } = useWeb3React()
+  const { activate, account, deactivate, error, chainId } = useWeb3React()
+
+  const chainIdSelected = useAppSelector(state => state.networks.selected)
 
   const connect = async () => {
     try {
@@ -44,14 +47,16 @@ const TopBar: React.FC = () => {
   }
 
   const connectionStatus = useMemo(() => {
-    if (account && !error) {
-      return 'logged'
-    } else if (!account && !error) {
+    if (!account) {
       return 'notLogged'
-    } else {
+    } else if ((account && error) || chainId !== parseInt(chainIdSelected)) {
       return 'wrongNetwork'
+    } else if (account && !error) {
+      return 'logged'
+    } else {
+      return 'notLogged'
     }
-  }, [account, error])
+  }, [account, error, chainIdSelected, chainId])
 
   const buttonConfig: IButtonConfig = {
     logged: {

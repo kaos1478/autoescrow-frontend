@@ -15,3 +15,7 @@ export const hexDateToNumber = (value: string) => parseInt(value) * 1000
 
 export const checkValidAmount = (value: number, minValueWei: number) =>
   value >= minValueWei
+
+export const numberToHex = (value: number) => `0x${value.toString(16)}`
+
+export const hexToNumber = (value: string) => parseInt(value, 10)

@@ -1,4 +1,5 @@
 // External libs
+import { useAppSelector } from '@/redux/store'
 import { IPaidsAsPayer, IPaidsAsSender } from '@/types/autoEscrowEscrowsTypes'
 import { toEther } from '@/utils/contract'
 import { Ellipse } from '@/utils/text'
@@ -22,6 +23,10 @@ interface IEscrowListItemProps {
 const EscrowListItemPaid: React.FC<IEscrowListItemProps> = ({ escrow }) => {
   const { account } = useWeb3React()
 
+  const { selected, networks } = useAppSelector(state => state.networks)
+
+  const selectedNetwork = networks.find(network => network.value === selected)
+
   const parsedEscrow = {
     ammount: toEther(escrow.weiAmount),
     id: escrow.id,
@@ -34,9 +39,9 @@ const EscrowListItemPaid: React.FC<IEscrowListItemProps> = ({ escrow }) => {
     <EscrowListItemFrame status="paid">
       <EscrowListItemColumn width="5rem" title="ID" value={parsedEscrow.id} />
       <EscrowListItemColumn
-        title="Ammount"
+        title={`Ammount (${selectedNetwork?.coin})`}
         value={parsedEscrow.ammount}
-        width="9rem"
+        width="9.5rem"
       />
       <EscrowListItemColumn
         ellipse

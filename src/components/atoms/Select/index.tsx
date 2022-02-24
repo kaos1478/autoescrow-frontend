@@ -14,7 +14,7 @@ import * as Styled from './styles'
 export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   handleChange: (e: ChangeEvent<HTMLSelectElement>) => void
   margin?: string
-  options: { value: string; text: string }[]
+  options: { value: string; text: string; active?: boolean }[]
 }
 
 const Select: React.FC<ISelectProps> = ({
@@ -47,7 +47,11 @@ const Select: React.FC<ISelectProps> = ({
       {...rest}
     >
       {options.map(option => (
-        <option key={`${option.value}-${option.text}`} value={option.value}>
+        <option
+          key={`${option.value}-${option.text}`}
+          value={option.value}
+          disabled={!option.active || false}
+        >
           {option.text}
         </option>
       ))}
