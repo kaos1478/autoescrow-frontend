@@ -45,22 +45,22 @@ const LastEscrowsPage: React.FC = () => {
       {
         icon: ShoppingCartSVG,
         title: 'Total Escrows',
-        value: counter.toString() || '0'
+        value: counter || 0
       },
       {
         icon: ShieldSVG,
         title: 'Current Tax',
-        value: `${taxPercentage}%` || '0%'
+        value: `${taxPercentage || 0}%`
       },
       {
         icon: DollarSignNotSVG,
         title: 'Unpaid Deadline',
-        value: openDeadline.toString() || '0'
+        value: `${openDeadline || 0} D`
       },
       {
         icon: DollarSignSVG,
         title: 'Paid Deadline',
-        value: paidDeadline.toString() || '0'
+        value: `${paidDeadline || 0} D`
       }
     ])
   }, [counter, taxPercentage, openDeadline, paidDeadline])

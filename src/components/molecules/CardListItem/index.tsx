@@ -15,7 +15,7 @@ import * as Styled from './styles'
 export interface ICardListItem {
   icon: FunctionComponent
   title: string
-  value: string
+  value: string | number
 }
 
 interface ICardListItemProps {
