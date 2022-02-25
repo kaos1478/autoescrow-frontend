@@ -12,7 +12,7 @@ export const Container = styled.li`
   display: flex;
 
   ${mq({
-    width: ['11rem', '11rem', '16rem'],
+    width: ['5.5rem', '11rem', '16rem'],
     padding: ['0.5rem', '0.5rem', '0']
   })};
 `

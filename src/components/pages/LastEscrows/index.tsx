@@ -3,6 +3,12 @@ import { useEffect, memo, useState } from 'react'
 import { useWeb3React } from '@web3-react/core'
 
 // Assets
+import {
+  DollarSignNotSVG,
+  DollarSignSVG,
+  ShieldSVG,
+  ShoppingCartSVG
+} from '@/assets/svgs'
 
 // Componentes
 import EscrowList from '@/components/organisms/EscrowList'
@@ -16,6 +22,7 @@ import { asyncGetLastEscrows } from '@/redux/slicers/lastEscrowsSlice'
 import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
 
 // Types
+import { ICardListItem } from '@/components/molecules/CardListItem'
 
 const LastEscrowsPage: React.FC = () => {
   const contract = useAutoEscrowContract()
@@ -28,6 +35,35 @@ const LastEscrowsPage: React.FC = () => {
   const fetching = useAppSelector(
     (state: RootState) => state.lastEscrows.fetching
   )
+  const { counter, taxPercentage, openDeadline, paidDeadline } = useAppSelector(
+    (state: RootState) => state.contractInfo
+  )
+  const [cards, setCards] = useState<ICardListItem[]>([])
+
+  useEffect(() => {
+    setCards([
+      {
+        icon: ShoppingCartSVG,
+        title: 'Total Escrows',
+        value: counter.toString() || '0'
+      },
+      {
+        icon: ShieldSVG,
+        title: 'Current Tax',
+        value: `${taxPercentage}%` || '0%'
+      },
+      {
+        icon: DollarSignNotSVG,
+        title: 'Unpaid Deadline',
+        value: openDeadline.toString() || '0'
+      },
+      {
+        icon: DollarSignSVG,
+        title: 'Paid Deadline',
+        value: paidDeadline.toString() || '0'
+      }
+    ])
+  }, [counter, taxPercentage, openDeadline, paidDeadline])
 
   useEffect(() => {
     clearInterval(intervalID)
@@ -40,7 +76,7 @@ const LastEscrowsPage: React.FC = () => {
   }, [contract, account, chainId, dispatch])
 
   return (
-    <Page title="Last Escrows" loading={fetching}>
+    <Page title="Last Escrows" loading={fetching} cards={cards}>
       <EscrowList escrows={escrows} status="open" />
     </Page>
   )
