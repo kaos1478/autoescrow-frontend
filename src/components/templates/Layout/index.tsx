@@ -15,6 +15,7 @@ import * as Styled from './styles'
 import useAutoEscrowContract from '@/hooks/useAutoEscrowContract'
 import { asyncGetContractInfo } from '@/redux/slicers/contractInfoSlice'
 import { useAppDispatch } from '@/redux/store'
+import { setSelectedNetwork } from '@/redux/slicers/networksSlice'
 
 // Types
 
@@ -26,6 +27,10 @@ const Layout: React.FC = ({ children }) => {
   useEffect(() => {
     dispatch(asyncGetContractInfo(contract))
   }, [account, chainId, contract, dispatch])
+
+  useEffect(() => {
+    dispatch(setSelectedNetwork(localStorage.getItem('network') || '80001'))
+  }, [])
 
   return (
     <Styled.Container>

@@ -53,6 +53,7 @@ export const networksSlice = createSlice({
   reducers: {
     setSelectedNetwork: (state, action: PayloadAction<string>) => {
       state.selected = action.payload
+      localStorage.setItem('network', action.payload)
     }
   }
 })

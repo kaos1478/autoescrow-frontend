@@ -28,6 +28,7 @@ interface IEscrowStatus {
     | 'disputesAsSender'
   text: string
   status: 'open' | 'paid' | 'dispute'
+  active?: boolean
 }
 
 const MyEscrows: React.FC = () => {
@@ -45,11 +46,36 @@ const MyEscrows: React.FC = () => {
     (state: RootState) => state.myEscrows.fetching
   )
   const escrowsStatus: IEscrowStatus[] = [
-    { value: 'opensAsSender', text: 'Opens As Sender', status: 'open' },
-    { value: 'paidsAsPayer', text: 'Paids As Payer', status: 'paid' },
-    { value: 'paidsAsSender', text: 'Paids As Sender', status: 'paid' },
-    { value: 'disputesAsPayer', text: 'Disputes As Payer', status: 'dispute' },
-    { value: 'disputesAsSender', text: 'Disputes As Sender', status: 'dispute' }
+    {
+      active: true,
+      status: 'open',
+      text: 'Opens As Sender',
+      value: 'opensAsSender'
+    },
+    {
+      active: true,
+      status: 'paid',
+      text: 'Paids As Payer',
+      value: 'paidsAsPayer'
+    },
+    {
+      active: true,
+      status: 'paid',
+      text: 'Paids As Sender',
+      value: 'paidsAsSender'
+    },
+    {
+      active: true,
+      status: 'dispute',
+      text: 'Disputes As Payer',
+      value: 'disputesAsPayer'
+    },
+    {
+      active: true,
+      status: 'dispute',
+      text: 'Disputes As Sender',
+      value: 'disputesAsSender'
+    }
   ]
 
   const selectHandleChange = (e: any) => {
