@@ -16,11 +16,11 @@ import * as Styled from './styles'
 const RoadmapList: React.FC = () => {
   const roadmapItems = [
     {
-      title: '1. Add internal chat (for greater anonymity)',
+      title: '1. Add Help Page',
       subItems: []
     },
     {
-      title: '2. Finish help page',
+      title: '2. Add Internal Chat (greater anonymity)',
       subItems: []
     },
     {

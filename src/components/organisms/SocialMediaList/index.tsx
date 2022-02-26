@@ -23,7 +23,7 @@ const SocialMediaList: React.FC = () => {
 
   return (
     <Styled.Container>
-      <Typography as="heading1">Social</Typography>
+      <Typography as="heading1">Social/Community MarketPlace</Typography>
       <Styled.List>
         {socialMediaItems.map(media => (
           <SocialMediaListItem key={media.title} media={media} />
