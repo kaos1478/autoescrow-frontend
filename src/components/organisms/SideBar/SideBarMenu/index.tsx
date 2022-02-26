@@ -6,7 +6,8 @@ import {
   BookOpenSVG,
   HelpCircleSVG,
   SearchSVG,
-  UserSVG
+  UserSVG,
+  InfoSVG
 } from '@/assets/svgs'
 
 // Componentes
@@ -45,6 +46,11 @@ const SideBarMenu: React.FC = () => {
       icon: HelpCircleSVG,
       link: '/Help',
       title: 'Help'
+    },
+    {
+      icon: InfoSVG,
+      link: '/Info',
+      title: 'Info'
     }
   ]
 

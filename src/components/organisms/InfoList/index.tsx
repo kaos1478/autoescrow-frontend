@@ -22,7 +22,7 @@ const InfoList: React.FC = () => {
       <InfoListGroup title="As Payer">
         <InfoListItem
           description={info.currentDisputeAsPayer}
-          title="Current disputes: "
+          title="Current Disputes: "
         />
         <InfoListItem
           description={info.currentPaidAsPayer}
@@ -36,11 +36,11 @@ const InfoList: React.FC = () => {
       <InfoListGroup title="As Sender">
         <InfoListItem
           description={info.currentDisputeAsSender}
-          title="Current disputes: "
+          title="Current Disputes: "
         />
         <InfoListItem
           description={info.currentOpenAsSender}
-          title="Current open: "
+          title="Current Open: "
         />
         <InfoListItem
           description={info.currentPaidAsSender}

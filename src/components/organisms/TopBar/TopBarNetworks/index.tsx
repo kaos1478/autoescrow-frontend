@@ -15,7 +15,9 @@ import { RootState, useAppDispatch, useAppSelector } from '@/redux/store'
 
 const TopBarNetworks: React.FC = () => {
   const dispatch = useAppDispatch()
-  const { networks } = useAppSelector((state: RootState) => state.networks)
+  const { networks, selected } = useAppSelector(
+    (state: RootState) => state.networks
+  )
 
   const handleChange = (network: string) => {
     dispatch(setSelectedNetwork(network))
@@ -25,6 +27,7 @@ const TopBarNetworks: React.FC = () => {
     <Select
       options={networks}
       handleChange={e => handleChange(e.currentTarget.value)}
+      value={selected}
       margin="0 0.5rem"
     />
   )
