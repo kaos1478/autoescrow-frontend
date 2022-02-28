@@ -29,7 +29,7 @@ const Layout: React.FC = ({ children }) => {
   }, [account, chainId, contract, dispatch])
 
   useEffect(() => {
-    dispatch(setSelectedNetwork(localStorage.getItem('network') || '80001'))
+    dispatch(setSelectedNetwork(localStorage.getItem('network') || '56'))
   }, [])
 
   return (
