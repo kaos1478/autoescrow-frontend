@@ -14,26 +14,19 @@ interface networks {
 }
 
 const initialState: networks = {
-  selected: '80001',
+  selected: '56',
   networks: [
     {
       active: true,
       coin: 'MATIC',
-      contractAddress: '0x3bFc8C16E968F45067ECB77FC3cad18151e6A2ab',
-      text: 'Poly Test',
-      value: '80001'
-    },
-    {
-      active: true,
-      coin: 'MATIC',
-      contractAddress: '0xE2Eb5EC66d926A329FEfaF3BB298f8FbD1f45788',
+      contractAddress: '0x90BB80C815ccFE970539CEa4E066a35b57105663',
       text: 'Polygon',
       value: '137'
     },
     {
       active: true,
       coin: 'BNB',
-      contractAddress: '0x72FDA63d84C593F5010BDf563a21E86c6174eaa4',
+      contractAddress: '0x867c87E76Ca0D7C70B6664A0e5182571A8d1015a',
       text: 'Binance',
       value: '56'
     },
@@ -43,6 +36,13 @@ const initialState: networks = {
       contractAddress: '',
       text: 'Ethereum',
       value: '1'
+    },
+    {
+      active: false,
+      coin: 'MATIC',
+      contractAddress: '0xd764Eb6c4FE505C15859bDE9bEaDCdA4f433d04e',
+      text: 'Poly Test',
+      value: '80001'
     }
   ]
 }
