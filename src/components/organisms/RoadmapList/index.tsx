@@ -28,7 +28,7 @@ const RoadmapList: React.FC = () => {
       subItems: [
         '1. Add ERC20 escrows',
         '2. Add marketplace listing',
-        '3. Create SafeEscrow Token',
+        '3. Create SelfEscrow Token',
         '4. Possible airdrop'
       ]
     }
